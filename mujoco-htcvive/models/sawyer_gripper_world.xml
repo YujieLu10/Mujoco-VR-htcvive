@@ -1,0 +1,78 @@
+<mujoco model="base">
+  <compiler angle="radian" meshdir="meshes/" />
+  <option cone="elliptic" impratio="20" />
+  <size nconmax="5000" njmax="5000" />
+
+  <include file="robots/sawyer/floatinggripper_actuator_right.xml"/>
+  <include file="robots/sawyer/floatinggripper_shared.xml"/>
+
+  <asset>
+    <mesh file="objects/milk.stl" name="milk_mesh" scale="0.9 0.9 0.9" />
+    <texture builtin="gradient" height="256" rgb1=".9 .9 1." rgb2=".2 .3 .4" type="skybox" width="256" />
+    <texture builtin="checker" height="512" name="texplane" rgb1=".2 .3 .4" rgb2=".1 0.15 0.2" type="2d" width="512" />
+    <texture file="textures/ceramic.png" name="tex-ceramic" />
+    <texture file="textures/light-wood.png" name="tex-light-wood" type="2d" />
+    <texture file="textures/dark-wood.png" name="tex-dark-wood" type="2d" />
+    <material name="light-wood" reflectance="0.5" texrepeat="15 15" texture="tex-light-wood" texuniform="true" />
+    <material name="dark-wood" reflectance="0.5" texrepeat="5 5" texture="tex-dark-wood" texuniform="true" />
+    <material name="floorplane" reflectance="0.5" texrepeat="1 1" texture="texplane" texuniform="true" />
+    <material name="ceramic" reflectance="0.5" texrepeat="1 1" texture="tex-ceramic" texuniform="true" />
+  </asset>
+
+  <equality>
+    <weld body1="mocap0" body2="r_arm_l6" solref="0.01 1" solimp=".9 .9 0.01"/>
+  </equality>
+
+  <worldbody>
+    <include file="robots/sawyer/floatinggripper_right.xml"/>
+
+    <!--Mocap body for tele-op-->
+    <body name="mocap0" mocap="true" pos="0 -1.11 1.5" euler="0 0 0">
+      <geom conaffinity="0" contype="0" group="1" mesh="l6" rgba="0.5 0.1 0.1 0.5" type="mesh" euler="0 3.14 0"/>
+    </body>
+
+    <!-- Dummy mocap body for second controller -->
+    <body name="mocap1" mocap="true" pos="1.0 -1.11 1.5" euler="0 0 0">
+      <!-- <geom conaffinity="0" contype="0" group="1" mesh="l6" rgba="0.5 0.1 0.1 0.5" type="mesh" euler="0 3.14 0"/> -->
+    </body>
+
+    <geom condim="3" material="floorplane" name="floor" pos="0.5 -0.3 0.0" size="3 3 .125" type="plane" />
+    <!-- <geom condim="3" material="floorplane" name="floor" pos="0 0 0" size="3 3 .125" type="plane" /> -->
+    <!-- <geom pos="0.6 0.2 0.7" rgba="0 0 0 0" size="0.5 1 .2" type="plane" /> -->
+    <geom pos="0 0 0" rgba="0 0 0 0" size="0.5 1 .2" type="plane" />
+    <body name="bin1" pos="0.6 -0.15 0.8">
+      <geom friction="1 0.005 0.0001" pos="0 0 0" size="0.2 0.25 0.02" type="box" />
+      <geom conaffinity="0" contype="0" group="1" material="light-wood" pos="0 0 0" size="0.2 0.25 0.02" type="box" />
+      <geom friction="1 0.005 0.0001" pos="0 0.25 0.05" rgba="0 0 1 1" size="0.21 0.01 0.05" type="box" />
+      <geom conaffinity="0" contype="0" group="1" material="light-wood" pos="0 0.25 0.05" size="0.21 0.01 0.05" type="box" />
+      <geom friction="1 0.005 0.0001" pos="0 -0.25 0.05" rgba="0 0 1 1" size="0.21 0.01 0.05" type="box" />
+      <geom conaffinity="0" contype="0" group="1" material="light-wood" pos="0 -0.25 0.05" size="0.21 0.01 0.05" type="box" />
+      <geom friction="1 0.005 0.0001" pos="0.2 0 0.05" rgba="0 0 1 1" size="0.01 0.25 0.05" type="box" />
+      <geom conaffinity="0" contype="0" group="1" material="light-wood" pos="0.2 0 0.05" size="0.01 0.25 0.05" type="box" />
+      <geom friction="1 0.005 0.0001" pos="-0.2 0 0.05" rgba="0 0 1 1" size="0.01 0.25 0.05" type="box" />
+      <geom conaffinity="0" contype="0" group="1" material="light-wood" pos="-0.2 0 0.05" size="0.01 0.25 0.05" type="box" />
+    </body>
+    <body name="bin2" pos="0.6 0.38000000000000006 0.8">
+      <geom friction="1 0.005 0.0001" pos="0 0 0" size="0.2 0.25 0.02" type="box" />
+      <geom conaffinity="0" contype="0" group="1" material="dark-wood" pos="0 0 0" size="0.2 0.25 0.02" type="box" />
+      <geom friction="1 0.005 0.0001" pos="0 0.25 0.05" rgba="1 0 0 1" size="0.21 0.01 0.05" type="box" />
+      <geom conaffinity="0" contype="0" group="1" material="dark-wood" pos="0 0.25 0.05" size="0.21 0.01 0.05" type="box" />
+      <geom friction="1 0.005 0.0001" pos="0 0 0.05" rgba="1 0 0 1" size="0.2 0.01 0.05" type="box" />
+      <geom conaffinity="0" contype="0" group="1" material="dark-wood" pos="0 0 0.05" size="0.2 0.01 0.05" type="box" />
+      <geom friction="1 0.005 0.0001" pos="0 -0.25 0.05" rgba="1 0 0 1" size="0.21 0.01 0.05" type="box" />
+      <geom conaffinity="0" contype="0" group="1" material="dark-wood" pos="0 -0.25 0.05" size="0.21 0.01 0.05" type="box" />
+      <geom friction="1 0.005 0.0001" pos="0.2 0 0.05" rgba="1 0 0 1" size="0.01 0.25 0.05" type="box" />
+      <geom conaffinity="0" contype="0" group="1" material="dark-wood" pos="0.2 0 0.05" size="0.01 0.25 0.05" type="box" />
+      <geom friction="1 0.005 0.0001" pos="0 0 0.05" rgba="1 0 0 1" size="0.01 0.25 0.05" type="box" />
+      <geom conaffinity="0" contype="0" group="1" material="dark-wood" pos="0 0 0.05" size="0.01 0.25 0.05" type="box" />
+      <geom friction="1 0.005 0.0001" pos="-0.2 0 0.05" rgba="1 0 0 1" size="0.01 0.25 0.05" type="box" />
+      <geom conaffinity="0" contype="0" group="1" material="dark-wood" pos="-0.2 0 0.05" size="0.01 0.25 0.05" type="box" />
+    </body>
+
+    <body name="Milk0" pos="0.6352409980929998 -0.29128142841891863 0.885" quat="0.47012485284903993 0 0 0.8825999222375156">
+      <geom condim="4" density="100" friction="0.95 0.3 0.1" group="1" material="ceramic" mesh="milk_mesh" name="Milk0" pos="0 0 0" solimp="0.998 0.998 0.001" solref="0.001 1" type="mesh" />
+      <site name="Milk0" pos="0 0 0" rgba="1 0 0 0" size="0.002 0.002 0.002" type="sphere" />
+      <joint damping="0.0005" name="Milk0" type="free" />
+    </body>
+  </worldbody>
+</mujoco>

@@ -1,0 +1,48 @@
+<mujocoinclude>
+	<compiler angle='radian' coordinate='local' meshdir='meshes/'/>
+	<option collision='all' impratio='1' cone='elliptic' timestep='0.001' gravity='0 0 -9.8' viscosity='0' iterations='20' />
+	<!--
+    <size njmax='600' nconmax='150' />
+	-->
+    <size njmax='3000' nconmax='2000' />
+
+	<!--  ================= Visual Elements ================= /-->
+    <asset>
+        <mesh name='l6' file='sawyer/l6.stl' />
+		<mesh name='half_round_tip' file='sawyer/two_finger_gripper/half_round_tip.stl' />
+		<mesh name='electric_gripper_base' file='sawyer/two_finger_gripper/electric_gripper_base.stl' />
+        <mesh name='extended_narrow' file='sawyer/two_finger_gripper/extended_narrow.stl'/>
+        <mesh name='paddle_tip' file='sawyer/two_finger_gripper/paddle_tip.stl'/>
+    </asset>
+
+	<!--  ================= Physical Properties ================= /-->
+	<default>
+		<geom solref='0.01 1' solimp='0.95 0.95 0.01' condim='4'/>
+
+		<default class='arm'>
+            <!--<geom material='MatGnd' rgba='.7 .4 .2 1' solref='0.01 1' solimp='0.95 0.98 0.001' contype='1' condim='1'-->
+                  <!--conaffinity='1'/>-->
+			<geom condim='1' friction='0 0 0' density='2700' contype='1' conaffinity='1' />
+			<joint limited='true' damping='1' />
+		</default>
+
+		<default class='viz'>
+			<geom contype='0' conaffinity='0' group='1' type='mesh'/>
+		</default>
+
+		<default class='gripper'>
+			<geom condim='4' density='2700' />
+			<joint limited='true' damping='0.001' stiffness='0.1' springref='0' />
+		</default>
+
+		<default class='gripper_pads'>
+			<geom friction='1 0.005 0.0001' solref='0.01 1' solimp='0.95 0.98 0.001' condim='4' density='100'/>
+		</default>
+
+		<default class='takktile_unit'>
+			<geom friction='5 0.003 0.0001' solref='0.008 1' solimp='0.95 0.99 0.0001' condim='6' density='300' size='0.003 0.002 0.003'  type='box' rgba='0.9 0.9 0.1 1' />
+			<site size='0.0035 0.001 0.0035' type='box' rgba='0.9 0.9 0.3 0.2' />
+		</default>
+	</default>
+
+</mujocoinclude>

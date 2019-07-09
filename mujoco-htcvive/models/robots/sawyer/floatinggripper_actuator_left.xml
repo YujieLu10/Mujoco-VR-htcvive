@@ -1,0 +1,10 @@
+<mujocoinclude>
+<actuator>
+    <position ctrllimited="true" ctrlrange="-0.05 0" forcelimited="true" forcerange="-20 20" joint="l_gripper_jr" kp="1000" name="l_gripper_jr_joint" />
+    <position ctrllimited="true" ctrlrange="0 0.05" forcelimited="true" forcerange="-20 20" joint="l_gripper_jl" kp="1000" name="l_gripper_jl_joint" />
+</actuator>
+
+<contact>
+    <exclude body1="l_finger_l" body2="l_finger_r"/>
+</contact>
+</mujocoinclude>
