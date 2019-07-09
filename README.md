@@ -1,3 +1,5 @@
+Based on https://github.com/thomasweng15/vive-mujoco.
+
 # vive-mujoco
 
 ## Setup
