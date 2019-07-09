@@ -1,0 +1,117 @@
+Sat Jul  6 18:44:34 2019
+ERROR: Could not init VR runtime: Installation path could not be located (110)
+
+Sat Jul  6 18:54:15 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sat Jul  6 19:01:46 2019
+ERROR: Expected HMD and at least one Controller
+
+Sat Jul  6 19:02:24 2019
+ERROR: Expected HMD and at least one Controller
+
+Sat Jul  6 19:09:04 2019
+ERROR: Expected HMD and at least one Controller
+
+Sat Jul  6 19:13:46 2019
+ERROR: Expected HMD and at least one Controller
+
+Sat Jul  6 19:14:21 2019
+ERROR: Expected HMD and at least one Controller
+
+Sat Jul  6 19:22:42 2019
+ERROR: Expected HMD and at least one Controller
+
+Sat Jul  6 19:29:26 2019
+ERROR: Expected HMD and at least one Controller
+
+Sat Jul  6 20:54:54 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 76. The simulation is unstable. Time = 0.0180.
+
+Sat Jul  6 21:01:42 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 19. The simulation is unstable. Time = 27.4800.
+
+Sat Jul  6 21:17:06 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 87. The simulation is unstable. Time = 6.6450.
+
+Sat Jul  6 21:19:58 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 151. The simulation is unstable. Time = 9.0400.
+
+Sat Jul  6 23:54:15 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 151. The simulation is unstable. Time = 6.5000.
+
+Sun Jul  7 18:52:11 2019
+WARNING: Pre-allocated contact buffer is full. Increase nconmax above 2000. Time = 0.0000.
+
+Sun Jul  7 18:52:11 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0000.
+
+Sun Jul  7 18:54:33 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul  7 18:54:38 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul  7 18:54:45 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul  7 21:16:23 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul  7 21:16:47 2019
+ERROR: Expected HMD and at least one Controller
+
+Sun Jul  7 23:54:10 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 91. The simulation is unstable. Time = 0.2500.
+
+Sun Jul  7 23:54:10 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.2100.
+
+Sun Jul  7 23:54:10 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 87. The simulation is unstable. Time = 0.2100.
+
+Sun Jul  7 23:54:11 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.2050.
+
+Sun Jul  7 23:54:12 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0650.
+
+Sun Jul  7 23:54:12 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0650.
+
+Sun Jul  7 23:54:12 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.2100.
+
+Sun Jul  7 23:54:12 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.2050.
+
+Sun Jul  7 23:55:26 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 91. The simulation is unstable. Time = 0.2500.
+
+Sun Jul  7 23:55:26 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 87. The simulation is unstable. Time = 0.2100.
+
+Sun Jul  7 23:55:27 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0650.
+
+Sun Jul  7 23:55:27 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0650.
+
+Mon Jul  8 13:58:33 2019
+ERROR: Expected HMD and at least one Controller
+
+Mon Jul  8 14:32:05 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 249. The simulation is unstable. Time = 0.0950.
+
+Mon Jul  8 14:32:17 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 249. The simulation is unstable. Time = 0.0950.
+
+Mon Jul  8 15:10:20 2019
+ERROR: Expected HMD and at least one Controller
+
+Mon Jul  8 17:41:00 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Mon Jul  8 17:41:50 2019
+ERROR: Expected HMD and at least one Controller
+

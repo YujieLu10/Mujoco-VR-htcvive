@@ -1,0 +1,21 @@
+MuJoCo Pro Lab license activation key, number 6519, type 6.
+
+Issued to Prof. David Held, Carnegie Mellon University.
+
+Expires February 6, 2020.
+
+Do not share this file with anyone other than the users covered
+by your license agreement with Roboti LLC. This file activates
+MuJoCo Pro on any computer running any supported OS.
+
+Do not modify this file. Its entire content, including the
+plain text section, is used by the activation manager.
+
+3dbdb821af459e59d3cfe6d8f06c7d324a9157bf38d12e5978a61e523686816c
+1fc01e57dddeef8b4ca4437e191aec3e1f55694692372cdd601d2703204385b5
+84f6bb75d5b332cf7d3f6a6ae7cdabfd7c8be94b166d142ec6a0fa3a71ba67d3
+6112b330f884be125d4798018775f437ce6b1c37b1a508d7e18d8cd1ea5a8687
+c5e99a8c61a8857f3f121f155a06f6e274b0abd55929a57c9992dc376b06f905
+2ec2122de9f274cdb602f27372eb55375fb535ae78a632ed5302369fec14a2be
+f6e6fa126ca37fa356a93b65596137bcaf9a95a07d9edaa4e4f4fe956ce4c2c4
+d435e536b637dddd9ceeaf783fc76ae3e6ecbc10c5d0b12b85a25e139e50ff32
