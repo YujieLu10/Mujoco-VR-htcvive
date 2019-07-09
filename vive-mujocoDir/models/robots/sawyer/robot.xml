@@ -1,0 +1,338 @@
+<mujoco model='sawyer'>
+	<compiler angle='radian' coordinate='local' meshdir='meshes/'/>
+	<option collision='all' impratio='1' cone='elliptic' timestep='0.001' gravity='0 0 -9.8' viscosity='0' iterations='20' />
+	<!--
+    <size njmax='600' nconmax='150' />
+	-->
+    <size njmax='3000' nconmax='2000' />
+
+	<!--  ================= Visual Elements ================= /-->
+    <asset>
+		<mesh name='pedestal' file='sawyer/pedestal.stl' />
+        <mesh name='base' file='sawyer/base.stl' />
+        <mesh name='l0' file='sawyer/l0.stl' />
+        <mesh name='head' file='sawyer/head.stl' />
+        <mesh name='l1' file='sawyer/l1.stl' />
+        <mesh name='l2' file='sawyer/l2.stl' />
+        <mesh name='l3' file='sawyer/l3.stl' />
+        <mesh name='l4' file='sawyer/l4.stl' />
+        <mesh name='l5' file='sawyer/l5.stl' />
+        <mesh name='l6' file='sawyer/l6.stl' />
+		<mesh name='half_round_tip' file='sawyer/two_finger_gripper/half_round_tip.stl' />
+		<mesh name='electric_gripper_base' file='sawyer/two_finger_gripper/electric_gripper_base.stl' />
+        <mesh name='extended_narrow' file='sawyer/two_finger_gripper/extended_narrow.stl'/>
+        <mesh name='paddle_tip' file='sawyer/two_finger_gripper/paddle_tip.stl'/>
+    </asset>
+
+	<!--  ================= Physical Properties ================= /-->
+	<default>
+		<geom solref='0.01 1' solimp='0.95 0.95 0.01' condim='4'/>
+
+		<default class='arm'>
+            <!--<geom material='MatGnd' rgba='.7 .4 .2 1' solref='0.01 1' solimp='0.95 0.98 0.001' contype='1' condim='1'-->
+                  <!--conaffinity='1'/>-->
+			<geom condim='1' friction='0 0 0' density='2700' contype='1' conaffinity='1' />
+			<joint limited='true' damping='1' />
+		</default>
+
+		<default class='viz'>
+			<geom contype='0' conaffinity='0' group='1' type='mesh'/>
+		</default>
+
+		<default class='gripper'>
+			<geom condim='4' density='2700' />
+			<joint limited='true' damping='0.001' stiffness='0.1' springref='0' />
+		</default>
+
+		<default class='gripper_pads'>
+			<geom friction='1 0.005 0.0001' solref='0.01 1' solimp='0.95 0.98 0.001' condim='4' density='100'/>
+		</default>
+
+		<default class='takktile_unit'>
+			<geom friction='5 0.003 0.0001' solref='0.008 1' solimp='0.95 0.99 0.0001' condim='6' density='300' size='0.003 0.002 0.003'  type='box' rgba='0.9 0.9 0.1 1' />
+			<site size='0.0035 0.001 0.0035' type='box' rgba='0.9 0.9 0.3 0.2' />
+		</default>
+	</default>
+
+
+	<!--  ================= Kinematic Tree ================= /-->
+    <worldbody>
+        <light directional='true' cutoff='40' exponent='10' diffuse='.4 .4 .4' specular='.7 .7 .7' pos='0.9 0 1.5' dir='0 0 -1' castshadow="false"/>
+        <camera name='static_camera' pos='0.0 -0.75 2.7' euler='0.5 0 0' />
+		<!--================= Mocap =================-->
+        <!-- <body name="mocap_body" pos="0 0 0" mocap="true">
+            <geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.7" size="0.005 0.005 0.005" type="box"></geom>
+            <geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.1" size="1 0.005 0.005" type="box"></geom>
+            <geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.1" size="0.005 1 0.001" type="box"></geom>
+            <geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.1" size="0.005 0.005 1" type="box"></geom>
+        </body> -->
+
+        <!--  ================= Base ================= /-->
+        <body name='base' quat='0.5 0 0 -0.5' pos='0 1 0.93' childclass='arm'>
+            <inertial pos='0 0 0' mass='0' diaginertia='0 0 0' />
+            <body name='controller_box' pos='0 0 0'>
+                <inertial pos='-0.325 0 -0.38' mass='46.64' diaginertia='1.71363 1.27988 0.809981' />
+                <geom size='0.11 0.2 0.265' pos='-0.325 0 -0.38' type='box' />
+            </body>
+            <body name='pedestal_feet' pos='0 0 0'>
+                <inertial pos='-0.1225 0 -0.758' mass='167.09' diaginertia='8.16095 9.59375 15.0785' />
+                <geom size='0.385 0.35 0.155' pos='-0.1225 0 -0.758' type='box' />
+            </body>
+            <body name='torso' pos='0 0 0'>
+                <inertial pos='0 0 0' mass='0.0001' diaginertia='1e-08 1e-08 1e-08' />
+                <geom size='0.05 0.05 0.05' type='box' contype='0' conaffinity='0' group='1' rgba='0.2 0.2 0.2 1' />
+            </body>
+            <body name='pedestal' pos='0 0 0'>
+                <inertial pos='0 0 0' quat='0.659267 -0.259505 -0.260945 0.655692' mass='60.864' diaginertia='6.0869 5.81635 4.20915' />
+                <geom pos='0.26 0.345 -0.91488' quat='0.5 0.5 -0.5 -0.5' type='mesh' contype='0' conaffinity='0' group='1' rgba='0.2 0.2 0.2 1' mesh='pedestal' />
+                <geom size='0.18 0.31' pos='-0.02 0 -0.29' type='cylinder' rgba='0.2 0.2 0.2 1' />
+            </body>
+            <body name='arm_arm_base_link' pos='0 0 0'>
+                <inertial pos='-0.0006241 -2.8025e-05 0.065404' quat='-0.209285 0.674441 0.227335 0.670558' mass='2.0687' diaginertia='0.00740351 0.00681776 0.00672942' />
+                <geom type='mesh' contype='0' conaffinity='0' group='1' rgba='0.5 0.1 0.1 1' mesh='base' />
+                <geom size='0.08 0.12' pos='0 0 0.12' type='cylinder' rgba='0.5 0.1 0.1 1' />
+				<!--  ================= Arm ================= /-->
+                <body name='arm_l0' pos='0 0 0.08' quat='1 0 0 0'>
+                    <inertial pos='0.024366 0.010969 0.14363' quat='0.894823 0.00899958 -0.170275 0.412573' mass='5.3213' diaginertia='0.0651588 0.0510944 0.0186218' />
+                    <joint name='arm_j0' pos='0 0 0' axis='0 0 1' range='-3.0503 3.0503' />
+                    <geom type='mesh' contype='0' conaffinity='0' group='1' rgba='0.5 0.1 0.1 1' mesh='l0' />
+                    <geom size='0.07' pos='0.08 0 0.23' rgba='0.5 0.1 0.1 1' />
+
+					<!--===Head===-->
+					<body name='head' pos='0 0 0.2965'>
+                        <inertial pos='0.0053207 -2.6549e-05 0.1021' quat='0.999993 7.08405e-05 -0.00359857 -0.000626247' mass='1.5795' diaginertia='0.0118334 0.00827089 0.00496574' />
+						<!--<joint name='head_pan' pos='0 0 0' axis='0 0 1' limited='true' range='-5.0952 0.9064' /-->
+                        <geom type='mesh' contype='0' conaffinity='0' group='1' rgba='0.5 0.1 0.1 1' mesh='head' />
+						<!--geom size='0.18' pos='0 0 0.08' rgba='0.5 0.1 0.1 1' /-->
+                        <body name='screen' pos='0.03 0 0.105' quat='0.5 0.5 0.5 0.5'>
+                            <inertial pos='0 0 0' mass='0.0001' diaginertia='1e-08 1e-08 1e-08' />
+                            <geom size='0.12 0.07 0.001' type='box' contype='0' conaffinity='0' group='1' rgba='0.8 0.8 0.8 0.9' />
+                            <geom size='0.001' rgba='0.2 0.2 0.2 1' />
+                        </body>
+                        <body name='head_camera' pos='0.0228027 0 0.816572' quat='0.342813 -0.618449 0.618449 -0.342813'>
+                            <inertial pos='0.0228027 0 0.216572' quat='0.342813 -0.618449 0.618449 -0.342813' mass='0' diaginertia='0 0 0' />
+                        </body>
+                    </body>
+					<!--===/Head===-->
+
+                    <body name='arm_torso_itb' pos='-0.055 0 0.22' quat='0.707107 0 -0.707107 0'>
+                        <inertial pos='0 0 0' mass='0.0001' diaginertia='1e-08 1e-08 1e-08' />
+                    </body>
+					<body name='arm_l1' pos='0.081 0.05 0.237' quat='0.5 -0.5 0.5 0.5'>
+                        <inertial pos='-0.0030849 -0.026811 0.092521' quat='0.424888 0.891987 0.132364 -0.0794296' mass='4.505' diaginertia='0.0224339 0.0221624 0.0097097' />
+                        <joint name='arm_j1' pos='0 0 0' axis='0 0 1' range='-3.8095 2.2736' />
+                        <geom type='mesh' contype='0' conaffinity='0' group='1' rgba='0.5 0.1 0.1 1' mesh='l1' />
+                        <geom size='0.07' pos='0 0 0.1225' rgba='0.5 0.1 0.1 1' />
+                        <body name='arm_l1_2' pos='0 0 0'>
+                            <inertial pos='1e-08 1e-08 1e-08' quat='0.820473 0.339851 -0.17592 0.424708' mass='1e-08' diaginertia='1e-08 1e-08 1e-08' />
+                            <geom size='0.07 0.07' pos='0 0 0.035' type='cylinder' />
+                        </body>
+                        <body name='arm_l2' pos='0 -0.14 0.1425' quat='0.707107 0.707107 0 0'>
+                            <inertial pos='-0.00016044 -0.014967 0.13582' quat='0.707831 -0.0524761 0.0516007 0.702537' mass='1.745' diaginertia='0.0257928 0.025506 0.00292515' />
+                            <joint name='arm_j2' pos='0 0 0' axis='0 0 1' range='-3.0426 3.0426' />
+                            <geom type='mesh' contype='0' conaffinity='0' group='1' rgba='0.5 0.1 0.1 1' mesh='l2' />
+                            <geom size='0.06 0.17' pos='0 0 0.08' type='cylinder' rgba='0.5 0.1 0.1 1' />
+                            <body name='arm_l2_2' pos='0 0 0'>
+                                <inertial pos='1e-08 1e-08 1e-08' quat='0.820473 0.339851 -0.17592 0.424708' mass='1e-08' diaginertia='1e-08 1e-08 1e-08' />
+                                <geom size='0.06' pos='0 0 0.26' />
+                            </body>
+                            <body name='arm_l3' pos='0 -0.042 0.26' quat='0.707107 -0.707107 0 0'>
+                                <inertial pos='-0.0048135 -0.0281 -0.084154' quat='0.902999 0.385391 -0.0880901 0.168247' mass='2.5097' diaginertia='0.0102404 0.0096997 0.00369622' />
+                                <joint name='arm_j3' pos='0 0 0' axis='0 0 1' range='-3.0439 3.0439' />
+                                <geom type='mesh' contype='0' conaffinity='0' group='1' rgba='0.5 0.1 0.1 1' mesh='l3' />
+                                <geom size='0.06' pos='0 -0.01 -0.12' rgba='0.5 0.1 0.1 1' />
+                                <body name='arm_l4' pos='0 -0.125 -0.1265' quat='0.707107 0.707107 0 0'>
+                                    <inertial pos='-0.0018844 0.0069001 0.1341' quat='0.803612 0.031257 -0.0298334 0.593582' mass='1.1136' diaginertia='0.0136549 0.0135493 0.00127353' />
+                                    <joint name='arm_j4' pos='0 0 0' axis='0 0 1' range='-2.9761 2.9761' />
+                                    <geom type='mesh' contype='0' conaffinity='0' group='1' rgba='0.5 0.1 0.1 1' mesh='l4' />
+                                    <geom size='0.045 0.15' pos='0 0 0.11' type='cylinder' rgba='0.5 0.1 0.1 1' />
+                                    <body name='arm_arm_itb' pos='-0.055 0 0.075' quat='0.707107 0 -0.707107 0'>
+                                        <inertial pos='0 0 0' mass='0.0001' diaginertia='1e-08 1e-08 1e-08' />
+                                    </body>
+                                    <body name='arm_l4_2' pos='0 0 0'>
+                                        <inertial pos='1e-08 1e-08 1e-08' quat='0.820473 0.339851 -0.17592 0.424708' mass='1e-08' diaginertia='1e-08 1e-08 1e-08' />
+                                        <geom size='0.06' pos='0 0.01 0.26' />
+                                    </body>
+                                    <body name='arm_l5' pos='0 0.031 0.275' quat='0.707107 -0.707107 0 0'>
+                                        <inertial pos='0.0061133 -0.023697 0.076416' quat='0.404076 0.9135 0.0473125 0.00158335' mass='1.5625' diaginertia='0.00474131 0.00422857 0.00190672' />
+										<joint name='arm_j5' pos='0 0 0' axis='0 0 1' range='-2.9761 2.9761' />
+                                        <geom type='mesh' contype='0' conaffinity='0' group='1' rgba='0.5 0.1 0.1 1' mesh='l5' />
+                                        <geom size='0.06' pos='0 0 0.1' rgba='0.5 0.1 0.1 1' />
+                                        <body name='arm_hand_camera' pos='0.039552 -0.033 0.0695' quat='0.707107 0 0.707107 0'>
+                                            <inertial pos='0.039552 -0.033 0.0695' quat='0.707107 0 0.707107 0' mass='0' diaginertia='0 0 0' />
+                                        </body>
+                                        <body name='arm_wrist' pos='0 0 0.10541' quat='0.707107 0.707107 0 0'>
+                                            <inertial pos='0 0 0.10541' quat='0.707107 0.707107 0 0' mass='0' diaginertia='0 0 0' />
+                                        </body>
+                                        <body name='arm_l6' pos='0 -0.11 0.1053' quat='0.0616248 0.06163 -0.704416 0.704416'>
+                                            <inertial pos='-8.0726e-06 0.0085838 -0.0049566' quat='0.479044 0.515636 -0.513069 0.491322' mass='0.3292' diaginertia='0.000360258 0.000311068 0.000214974' />
+                                            <joint name='arm_j6' pos='0 0 0' axis='0 0 1' range='-4.7124 4.7124' />
+											<!--  ================================== /-->
+											<body name='gripper_origin' pos='0 0 0.18735' quat='0.707107 0 0 0.707107'>
+											<!-- <site name='gripper_origin' size='0.005' pos='0 0 0' rgba='0 0.5 0 0.25' quat='1 0 0 0'/> -->
+											</body>
+											<!--  ================================== /-->
+                                            <geom type='mesh' contype='0' conaffinity='0' group='1' rgba='0.5 0.1 0.1 1' mesh='l6' />
+                                            <geom size='0.055 0.025' pos='0 0.015 -0.01' type='cylinder' rgba='0.5 0.1 0.1 1' />
+                                            <body name='arm_hand' pos='0 0 0.0245' quat='0.707107 0 0 0.707107'>
+                                                <inertial pos='1e-08 1e-08 1e-08' quat='0.820473 0.339851 -0.17592 0.424708' mass='1e-08' diaginertia='1e-08 1e-08 1e-08' />
+                                                <geom size='0.035 0.015' pos='0 0 0.02' type='cylinder' />
+												<!--  ================= Gripper ================= /-->
+                                                <body name='arm_gripper_base' pos='0 0 0.025'>
+                                                    <inertial pos='0 0 0' quat='-0.5 0.5 0.5 0.5' mass='0.3' diaginertia='3e-08 2e-08 2e-08' />
+                                                    <geom quat='0 0 0.707107 0.707107' class='viz' mesh='electric_gripper_base' />
+                                                    <geom size='0.029 0.05' quat='0 0 0.707107 0.707107' type='cylinder' />
+                                                    <!--<body name='arm_gripper' pos='0 0 0.1327'>
+                                                        <inertial pos='0 0 0' mass='0.0001' diaginertia='0 0 0' />
+                                                    </body>-->
+                                                    <body name='finger_l' pos='0 -0.0015 0.02'>
+                                                        <inertial pos='0 0 0' quat='0 0 0 -1' mass='0.02' diaginertia='0.01 0.01 0.01' />
+                                                        <!--<joint name='gripper_jl' pos='0 0 0' axis='0 1 0' type='slide' range='0 0.020833' springdamper='0.08 6' limited='true'/>-->
+                                                        <geom class='viz' mesh='extended_narrow' euler='1.57 1.57 0' rgba='0.1 0.1 0.1 1'/>
+                                                        <geom size='0.005 0.00675 0.05635' pos='0 0.01725 0.0615' quat='0 0 0 -1' type='box' rgba='0.1 0.1 0.1 1'/>
+                                                        <geom size='0.005 0.025 0.0085' pos='-0.005 -0.003 0.0083' quat='0 0 0 -1' type='box' rgba='0.1 0.1 0.1 1'/>
+														<geom size='0.01 0.005 0.025' pos='0 0.012 0.095' type='box' rgba='0.3 0.3 0.3 0.9' class='gripper_pads' />
+														<!--  === Sensors === /-->
+														<!-- <body name='sensor_array_l' pos='0 0.007 0.1' quat='0 0 0 1' childclass='takktile_unit'>
+															<geom pos='0.0045 0.002 -0.016'/>
+															<site name='sensor_tl0' pos='0.0045 0.004 -0.016'/>
+															<geom pos='-0.0045 0.002 -0.016' />
+															<site name='sensor_tl1' pos='-0.0045 0.004 -0.016'/>
+															<geom pos='0.0045 0.002 -0.008'/>
+															<site name='sensor_tl2' pos='0.0045 0.004 -0.008'/>
+															<geom pos='-0.0045 0.002 -0.008'/>
+															<site name='sensor_tl3' pos='-0.0045 0.004 -0.008'/>
+															<geom pos='0.0045 0.002 0'/>
+															<site name='sensor_tl4' pos='0.0045 0.004 0'/>
+															<geom pos='-0.0045 0.002 0'/>
+															<site name='sensor_tl5' pos='-0.0045 0.004 0'/>
+															<geom pos='0.0045 0.002 0.008'/>
+															<site name='sensor_tl6' pos='0.0045 0.004 0.008'/>
+															<geom pos='-0.0045 0.002 0.008'/>
+															<site name='sensor_tl7' pos='-0.0045 0.004 0.008'/>
+															<geom pos='0.0045 0.002 0.016'/>
+															<site name='sensor_tl8' pos='0.0045 0.004 0.016'/>
+															<geom pos='-0.0045 0.002 0.016'/>
+															<site name='sensor_tl9' pos='-0.0045 0.004 0.016'/>
+														</body> -->
+														
+                                                        <!-- <body name='r_gripper_l_finger_tip' pos='0 0.01725 0.1127'>
+                                                            <inertial pos='0 0 0' quat='0 0 0 1' mass='0.01' diaginertia='0.01 0.01 0.01' />
+                                                            <geom pos='-.007 -.01 0.003' class='viz' mesh='half_round_tip' euler='-1.57 0 0'/>
+                                                            <geom size='0.008 0.0185' pos='0 -0.0045 -0.015' quat='0 0 0 1' type='cylinder' />
+                                                        </body> -->
+														
+                                                    </body>
+                                                    <body name='finger_r' pos='0 0.0015 0.02'>
+                                                        <inertial pos='0 0 0' mass='0.02' diaginertia='0.01 0.01 0.01' />
+                                                        <!--<joint name='gripper_jr' pos='0 0 0' axis='0 1 0' type='slide' range='-0.020833 0' springdamper='0.08 6' limited='true'/>-->
+                                                        <geom class='viz' mesh='extended_narrow' euler='1.57 -1.57 0' rgba='0.1 0.1 0.1 1'/>
+                                                        <geom size='0.005 0.00675 0.05635' pos='0 -0.01725 0.0615' type='box' rgba='0.1 0.1 0.1 1'/>
+                                                        <geom size='0.005 0.025 0.0085' pos='0.005 0.003 0.0083' type='box' rgba='0.1 0.1 0.1 1'/>
+														<geom size='0.01 0.005 0.025' pos='0 -0.012 0.095' type='box' rgba='0.3 0.3 0.3 0.9' class='gripper_pads' />
+														<!--  === Sensors === /-->
+														<!-- <body name='sensor_array_r' pos='0 -0.007 0.1' quat='1 0 0 0' childclass='takktile_unit'>
+															<geom pos='0.0045 0.002 -0.016'/>
+															<site name='sensor_tr0' pos='0.0045 0.004 -0.016'/>
+															<geom pos='-0.0045 0.002 -0.016' />
+															<site name='sensor_tr1' pos='-0.0045 0.004 -0.016'/>
+															<geom pos='0.0045 0.002 -0.008'/>
+															<site name='sensor_tr2' pos='0.0045 0.004 -0.008'/>
+															<geom pos='-0.0045 0.002 -0.008'/>
+															<site name='sensor_tr3' pos='-0.0045 0.004 -0.008'/>
+															<geom pos='0.0045 0.002 0'/>
+															<site name='sensor_tr4' pos='0.0045 0.004 0'/>
+															<geom pos='-0.0045 0.002 0'/>
+															<site name='sensor_tr5' pos='-0.0045 0.004 0'/>
+															<geom pos='0.0045 0.002 0.008'/>
+															<site name='sensor_tr6' pos='0.0045 0.004 0.008'/>
+															<geom pos='-0.0045 0.002 0.008'/>
+															<site name='sensor_tr7' pos='-0.0045 0.004 0.008'/>
+															<geom pos='0.0045 0.002 0.016'/>
+															<site name='sensor_tr8' pos='0.0045 0.004 0.016'/>
+															<geom pos='-0.0045 0.002 0.016'/>
+															<site name='sensor_tr9' pos='-0.0045 0.004 0.016'/>
+														</body> -->
+														
+                                                        <!-- <body name='r_gripper_r_finger_tip' pos='0 -0.01725 0.1127'>
+                                                            <inertial pos='0 0 0' mass='0.01' diaginertia='0.01 0.01 0.01' />
+                                                            <geom pos='.007 .01 0.003' class='viz' mesh='half_round_tip' euler='-1.57 3.14 0'/>
+                                                            <geom size='0.008 0.0185' pos='0 0.0045 -0.015' type='cylinder' />
+                                                        </body> -->
+														
+                                                    </body>
+                                                </body>
+                                            </body>
+                                        </body>
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+
+	<!--  ================= Constraints ================= /-->
+	<!--<equality>-->
+		<!--<joint joint1='gripper_jl' joint2='gripper_jr' polycoef='0 -1 0 0 0' solimp="0.99 0.999 0.001" solref="0.01 1"/>-->
+	<!--</equality>-->
+
+	<!--  ================= Actuators ================= /-->
+	<actuator>
+		<!--  ================= Torque actuators ================= /-->
+		<motor joint='arm_j0' name='tj0' ctrllimited='false'/>
+		<motor joint='arm_j1' name='tj1' ctrllimited='false'/>
+		<motor joint='arm_j2' name='tj2' ctrllimited='false'/>
+		<motor joint='arm_j3' name='tj3' ctrllimited='false'/>
+		<motor joint='arm_j4' name='tj4' ctrllimited='false'/>
+		<motor joint='arm_j5' name='tj5' ctrllimited='false'/>
+		<motor joint='arm_j6' name='tj6' ctrllimited='false'/>
+		<!--<motor joint='gripper_jl' name='tg0' ctrllimited='false'/>-->
+
+		<!--  ================= Position actuators ================= /-->
+		<!--<position joint='arm_j0' 	name='pj0' kp='1e5' ctrlrange='-3.0503 3.0503'/>-->
+		<!--<position joint='arm_j1' 	name='pj1' kp='1e5' ctrlrange='-3.8095 2.2736'/>-->
+		<!--<position joint='arm_j2' 	name='pj2' kp='1e5' ctrlrange='-3.0426 3.0426'/>-->
+		<!--<position joint='arm_j3' 	name='pj3' kp='2e4' ctrlrange='-3.0439 3.0439'/>-->
+		<!--<position joint='arm_j4' 	name='pj4' kp='2e4' ctrlrange='-2.9761 2.9761'/>-->
+		<!--<position joint='arm_j5' 	name='pj5' kp='1e3' ctrlrange='-2.9761 2.9761'/>-->
+		<!--<position joint='arm_j6' 	name='pj6' kp='1e3' ctrlrange='-4.7124 4.7124'/>-->
+		<!--<position joint='gripper_jr' 	name='pg1' kp='1000' ctrlrange='-0.05 0'/>-->
+		<!--<position joint='gripper_jl' 	name='pg0' kp='2000' ctrlrange='0 0.05'/>-->
+	</actuator>
+
+	<!--  ================= Sensors ================= /-->
+	<sensor>
+        <jointpos name='j0' joint='arm_j0' />
+        <jointpos name='j1' joint='arm_j1' />
+        <jointpos name='j2' joint='arm_j2' />
+        <jointpos name='j3' joint='arm_j3' />
+        <jointpos name='j4' joint='arm_j4' />
+        <jointpos name='j5' joint='arm_j5' />
+        <jointpos name='j6' joint='arm_j6' />
+        <!--<jointpos name='gripper' joint='gripper_jl' />-->
+
+		<!-- <touch name='tl0' site='sensor_tl0' />
+		<touch name='tl1' site='sensor_tl1' />
+		<touch name='tl2' site='sensor_tl2' />
+		<touch name='tl3' site='sensor_tl3' />
+		<touch name='tl4' site='sensor_tl4' />
+		<touch name='tl5' site='sensor_tl5' />
+		<touch name='tl6' site='sensor_tl6' />
+		<touch name='tl7' site='sensor_tl7' />
+		<touch name='tl8' site='sensor_tl8' />
+		<touch name='tl9' site='sensor_tl9' />
+		<touch name='tr0' site='sensor_tr0' />
+		<touch name='tr1' site='sensor_tr1' />
+		<touch name='tr2' site='sensor_tr2' />
+		<touch name='tr3' site='sensor_tr3' />
+		<touch name='tr4' site='sensor_tr4' />
+		<touch name='tr5' site='sensor_tr5' />
+		<touch name='tr6' site='sensor_tr6' />
+		<touch name='tr7' site='sensor_tr7' />
+		<touch name='tr8' site='sensor_tr8' />
+		<touch name='tr9' site='sensor_tr9' /> -->
+	</sensor>
+</mujoco>

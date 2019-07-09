@@ -1,0 +1,48 @@
+<mujocoinclude>
+  <body name="right_l6" pos="0 -1.11 1.5" euler="0 3.14 0">
+    <inertial diaginertia="0.000360258 0.000311068 0.000214974" mass="0.3292" pos="-8.0726e-06 0.0085838 -0.0049566" quat="0.479044 0.515636 -0.513069 0.491322" />
+    <freejoint/>
+    <geom conaffinity="0" contype="0" group="1" mesh="l6" rgba="0.5 0.1 0.1 1" type="mesh" />
+    <!-- <geom pos="0 0.015 -0.01" rgba="0.5 0.1 0.1 1" size="0.055 0.025" type="cylinder" /> -->
+    <body name="right_hand" pos="0 0 0.0245" quat="0.707105 0 0 0.707108">
+      <inertial diaginertia="1e-08 1e-08 1e-08" mass="1e-08" pos="1e-08 1e-08 1e-08" quat="0.820473 0.339851 -0.17592 0.424708" />
+      <geom size="1e-08 5e-09" type="cylinder" />
+      <body name="right_gripper_base" pos="0 0 0.025">
+        <inertial diaginertia="3e-08 2e-08 2e-08" mass="0.3" pos="0 0 0" quat="-0.5 0.5 0.5 0.5" />
+        <geom conaffinity="0" contype="0" group="1" mesh="electric_gripper_base" quat="0 0 0.707107 0.707107" type="mesh" />
+        <geom quat="0 0 0.707107 0.707107" size="0.029 0.05" type="cylinder" />
+        <body name="right_gripper" pos="0 0 0.095">
+          <inertial diaginertia="0 0 0" mass="0.0001" pos="0 0 0" />
+          <!-- <site group="1" name="grip_site" pos="0 0 0" rgba="1 0 0 1" size="0.01 0.01 0.01" type="sphere" /> -->
+          <!-- <site group="1" name="grip_site_cylinder" pos="0 0 0" rgba="0 1 0 0.3" size="0.005 10" type="cylinder" /> -->
+          <camera fovy="75" mode="fixed" name="eye_in_hand" pos="0 0 0" quat="0 -1 1 0" />
+        </body>
+        <body name="r_gripper_l_finger" pos="0 0.01 0.02">
+          <inertial diaginertia="0.01 0.01 0.01" mass="0.02" pos="0 0 0" quat="0 0 0 -1" />
+          <joint solreflimit="0.006 1" solimplimit="0.99 0.999 0.001" axis="0 1 0" damping="100" limited="true" name="r_gripper_l_finger_joint" pos="0 0 0" range="-0.0115 0.020833" type="slide" />
+          <geom conaffinity="0" contype="0" group="1" mesh="standard_narrow" name="r_gripper_l_finger" quat="0 0 0 -1" type="mesh" />
+          <geom conaffinity="1" contype="0" friction="0 0 0" name="l_finger_g0" pos="0 0.01725 0.04" quat="0 0 0 -1" size="0.005 0.00675 0.0375" type="box" />
+          <geom conaffinity="1" contype="0" friction="0 0 0" name="l_finger_g1" pos="-0.005 -0.003 0.0083" quat="0 0 0 -1" size="0.005 0.025 0.0085" type="box" />
+          <body name="r_gripper_l_finger_tip" pos="0 0.01725 0.075">
+            <inertial diaginertia="0.01 0.01 0.01" mass="0.01" pos="0 0 0" quat="0 0 0 1" />
+            <geom conaffinity="0" contype="0" group="1" mesh="half_round_tip" quat="0 0 0 1" type="mesh" />
+            <geom conaffinity="1" contype="0" friction="0 0 0" name="l_fingertip_g0" pos="0 -0.0045 -0.015" quat="0 0 0 1" size="0.004 0.004 0.0185" type="box" />
+          </body>
+        </body>
+        <body name="r_gripper_r_finger" pos="0 -0.01 0.02">
+          <inertial diaginertia="0.01 0.01 0.01" mass="0.02" pos="0 0 0" />
+          <joint solreflimit="0.006 1" solimplimit="0.99 0.999 0.001" axis="0 1 0" damping="100" limited="true" name="r_gripper_r_finger_joint" pos="0 0 0" range="-0.020833 0.0115" type="slide" />
+          <geom conaffinity="0" contype="0" group="1" mesh="standard_narrow" name="r_gripper_r_finger" type="mesh" />
+          <geom conaffinity="1" contype="0" friction="0 0 0" name="r_finger_g0" pos="0 -0.01725 0.04" size="0.005 0.00675 0.0375" type="box" />
+          <geom conaffinity="1" contype="0" friction="0 0 0" name="r_finger_g1" pos="0.005 0.003 0.0083" size="0.005 0.025 0.0085" type="box" />
+          <body name="r_gripper_r_finger_tip" pos="0 -0.01725 0.075">
+            <inertial diaginertia="0.01 0.01 0.01" mass="0.01" pos="0 0 0" />
+            <geom conaffinity="0" contype="0" group="1" mesh="half_round_tip" type="mesh" />
+            <geom conaffinity="1" contype="0" friction="0 0 0" name="r_fingertip_g0" pos="0 0.0045 -0.015" size="0.004 0.004 0.0185" type="box" />
+          </body>
+        </body>
+      </body>
+    </body>
+  </body>
+</mujocoinclude>
+    <!-- <joint axis="0 0 1" damping="0.1" limited="true" name="right_j6" pos="0 0 0" range="-4.7124 4.7124" /> -->

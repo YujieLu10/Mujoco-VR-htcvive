@@ -1,0 +1,8 @@
+<mujocoinclude>
+  <asset>
+    <mesh file="sawyer/l6.stl" name="l6" />
+    <mesh file="sawyer/two_finger_gripper/electric_gripper_base.STL" name="electric_gripper_base" />
+    <mesh file="sawyer/two_finger_gripper/standard_narrow.STL" name="standard_narrow" />
+    <mesh file="sawyer/two_finger_gripper/half_round_tip.STL" name="half_round_tip" />
+  </asset>
+</mujocoinclude>

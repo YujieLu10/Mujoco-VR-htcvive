@@ -1,0 +1,109 @@
+<mujoco model="Humanoid and 100 objects">
+  <compiler angle="degree" meshdir="meshes/"/>
+
+  <include file="robots/fetch/gripperasset.xml"/>
+
+  <option timestep="0.003" iterations="50" solver="Newton" jacobian="sparse" cone="elliptic" tolerance="1e-10"/>
+
+  <size njmax="5000" nconmax="2000" nstack="5000000"/>
+
+  <default>
+    <geom solimp=".9 .9 .01"/>
+
+    <default class="object1">
+      <geom type="capsule" material="geom" rgba=".4 .9 .6 1" size="0.1 0.05"/>
+    </default>
+
+    <default class="object2">
+      <geom type="ellipsoid" material="geom" rgba=".4 .6 .9 1" size="0.15 0.1 0.07"/>
+    </default>
+
+    <default class="object3">
+      <geom type="box" material="geom" rgba=".4 .9 .9 1" size="0.15 0.1 0.05"/>
+    </default>
+
+    <default class="object4">
+      <geom type="cylinder" material="geom" rgba=".8 .6 .8 1" size="0.1 0.05" condim="4" friction="1 .01 .01"/>
+    </default>
+
+    <default class="object5">
+      <geom type="sphere" material="geom" rgba=".9 .1 .1 1" size="0.1"/>
+    </default>
+
+    <default class="humanoid">
+      <geom rgba="1.2 1.2 0.6 1" material="geom"/>
+      <joint damping="1" limited="true"/>
+    </default>
+
+    <default class="border">
+      <geom type="capsule" size="0.4" rgba=".4 .4 .4 1"/>
+    </default>
+
+    <default class="borderpost">
+      <geom type="box" size="0.41 0.41 0.41" rgba=".55 .55 .55 1"/>
+    </default>
+  </default>
+
+  <asset>
+    <texture type="skybox" builtin="gradient" width="128" height="128" rgb1=".4 .6 .8" rgb2="0 0 0"/>
+    <!-- <texture name="texgeom" type="cube" builtin="flat" mark="cross" width="128" height="128"  --> rgb1="0.6 0.6 0.6" rgb2="0.6 0.6 0.6" markrgb="1 1 1"/>
+    <texture name="texplane" type="2d" builtin="checker" rgb1=".4 .4 .4" rgb2=".6 .6 .6" width="512" height="512"/>
+    <material name='geom' texture="texgeom" texuniform="true"/>
+    <material name='MatPlane' reflectance='0.3' texture="texplane" texrepeat="1 1" texuniform="true"/>
+  </asset>
+
+  <visual>
+    <quality shadowsize="4096" offsamples="8"/>
+    <map znear="0.1" force="0.05"/>
+  </visual>
+
+  <statistic extent="4"/>
+
+  <equality>
+    <weld body1="mocap0" body2="gripper_link" solref="0.01 1" solimp=".9 .9 0.01"/>
+  </equality>
+
+  <worldbody>
+    <light directional="true" diffuse=".8 .8 .8" pos="0 0 10" dir="0 0 -10"/>
+
+    <geom pos="0 0 0" type="plane" size="3 3 .5" rgba=".7 .7 .7 1" material="MatPlane"/>
+
+    <geom class="border" fromto="-3 3 0 3 3 0" />
+    <geom class="border" fromto="-3 -3 0 3 -3 0" />
+    <geom class="border" fromto="3 3 0 3 -3 0" />
+    <geom class="border" fromto="-3 3 0 -3 -3 0" />
+    <geom class="borderpost" pos="3 3 0"/>
+    <geom class="borderpost" pos="-3 3 0"/>
+    <geom class="borderpost" pos="3 -3 0"/>
+    <geom class="borderpost" pos="-3 -3 0"/>
+
+    <!-- Mocap body -->
+    <body name="mocap0" mocap="true" pos="0.1385 0 0" euler="1.57 -1.57 0">
+      <geom type="mesh" mesh="gripper_link" group="2" euler="1.57 0 -1.57" contype="0" conaffinity="0" rgba=".5 .5 .5 0.15" pos="0 0 -0.16645"/>
+      <geom type="mesh" mesh="wrist_roll_link" group="2" euler="0 1.57 0" contype="0" conaffinity="0" rgba=".5 .5 .5 0.15"/>
+    </body>
+
+    <include file="robots/fetch/gripperchain.xml"/>
+
+    <body pos="-2 -2 1" quat="-0.632456 -0.632456 0.316228 0.316228">
+      <freejoint/>
+      <geom class="object1"/>
+    </body>
+    <body pos="-1 -2 1" quat="-0.377964 -0.755929 0.377964 0.377964">
+      <freejoint/>
+      <geom class="object2"/>
+    </body>
+    <body pos="0 -2 1" quat="0 -0.816497 0.408248 0.408248">
+      <freejoint/>
+      <geom class="object3"/>
+    </body>
+    <body pos="1 -2 1" quat="0.377964 -0.755929 0.377964 0.377964">
+      <freejoint/>
+      <geom class="object4"/>
+    </body>
+    <body pos="2 -2 1" quat="0.632456 -0.632456 0.316228 0.316228">
+      <freejoint/>
+      <geom class="object5"/>
+    </body>
+  </worldbody>
+</mujoco>

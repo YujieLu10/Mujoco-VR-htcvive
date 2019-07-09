@@ -1,0 +1,29 @@
+<mujocoinclude>
+  <actuator>
+    <velocity ctrllimited="true" ctrlrange="-1.74 1.74" joint="right_j0" kv="8.0" name="vel_right_j0" />
+    <velocity ctrllimited="true" ctrlrange="-1.328 1.328" joint="right_j1" kv="7.0" name="vel_right_j1" />
+    <velocity ctrllimited="true" ctrlrange="-1.957 1.957" joint="right_j2" kv="6.0" name="vel_right_j2" />
+    <velocity ctrllimited="true" ctrlrange="-1.957 1.957" joint="right_j3" kv="4.0" name="vel_right_j3" />
+    <velocity ctrllimited="true" ctrlrange="-3.485 3.485" joint="right_j4" kv="2.0" name="vel_right_j4" />
+    <velocity ctrllimited="true" ctrlrange="-3.485 3.485" joint="right_j5" kv="0.5" name="vel_right_j5" />
+    <velocity ctrllimited="true" ctrlrange="-4.545 4.545" joint="right_j6" kv="0.1" name="vel_right_j6" />
+    <position ctrllimited="true" ctrlrange="-0.0115 0.020833" forcelimited="true" forcerange="-20 20" joint="r_gripper_r_finger_joint" kp="10000" name="gripper_r_gripper_r_finger_joint" />
+    <position ctrllimited="true" ctrlrange="-0.020833 0.0115" forcelimited="true" forcerange="-20 20" joint="r_gripper_l_finger_joint" kp="10000" name="gripper_r_gripper_l_finger_joint" />
+  </actuator>
+
+  <asset>
+    <mesh file="sawyer/pedestal.stl" name="pedestal" />
+    <mesh file="sawyer/base.stl" name="base" />
+    <mesh file="sawyer/l0.stl" name="l0" />
+    <mesh file="sawyer/head.stl" name="head" />
+    <mesh file="sawyer/l1.stl" name="l1" />
+    <mesh file="sawyer/l2.stl" name="l2" />
+    <mesh file="sawyer/l3.stl" name="l3" />
+    <mesh file="sawyer/l4.stl" name="l4" />
+    <mesh file="sawyer/l5.stl" name="l5" />
+    <mesh file="sawyer/l6.stl" name="l6" />
+    <mesh file="sawyer/two_finger_gripper/electric_gripper_base.STL" name="electric_gripper_base" />
+    <mesh file="sawyer/two_finger_gripper/standard_narrow.STL" name="standard_narrow" />
+    <mesh file="sawyer/two_finger_gripper/half_round_tip.STL" name="half_round_tip" />
+  </asset>
+</mujocoinclude>

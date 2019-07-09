@@ -1,0 +1,41 @@
+<!-- ======================================================
+    Model       :: Fetch
+        Source      : OpenAI (https://github.com/openai) (9Sept'16)
+					: Fetch Robotics (https://github.com/fetchrobotics/fetch_ros/tree/indigo-devel/fetch_description)
+        
+    Mujoco      :: Advanced physics simulation engine
+        Source      : www.roboti.us
+        Version     : 1.41
+        Released    : 22Aug'16
+        
+    Author      :: Vikash Kumar
+        Contacts    : kumar@roboti.us
+        Last edits  : 05Oct'16
+		
+	Copyright 2016 Vikash Kumar
+		Licensed under Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. ====================================================== -->
+<mujocoinclude>
+  <body childclass="fetch" name="wrist_roll_link" pos="0.1385 0 0">
+    <inertial pos="0.0095 0.0004 -0.0002" mass="0.1354" diaginertia="0.0001 0.0001 0.0001" />
+    <joint type="free" name="robot:wrist_roll_joint" damping="0" armature="0" limited="false"/>
+    <geom mesh="wrist_roll_link" />
+    <body name="gripper_link" pos="0.16645 0 0">
+      <inertial pos="-0.09 -0.0001 -0.0017" quat="0 0.707107 0 0.707107" mass="1.5175" diaginertia="0.0024 0.0019 0.0013" />
+      <!-- <inertial pos="-0.09 -0.0001 -0.0017" quat="0 0.707107 0 0.707107" mass="0.1" diaginertia="0.001 0.001 0.001" /> -->
+      <geom mesh="gripper_link" />
+      <site name="grip" rgba='1. 0. 0. 1.' size=".02 .02 .02" group="3"/>
+      <body name="r_gripper_finger_link" pos="0 0.0159 0.0" childclass="fetchGripper">
+        <inertial pos="-0.01 0 0" mass="0.0798" diaginertia="0.002 0.002 0.002" />
+        <joint name="robot:r_gripper_finger_joint" axis="0 1 0" range="0 0.05" />
+        <!-- <geom pos="0 0.101425 0" mesh="r_gripper_finger_link"/> -->
+        <geom pos="-.05 -.008 0" type="box" size="0.082 0.008 0.03"/>
+      </body>
+      <body name="l_gripper_finger_link" pos="0 -0.0159 0.0" childclass="fetchGripper">
+        <inertial pos="-0.01 0 0" mass="0.0798" diaginertia="0.002 0.002 0.002" />
+        <joint name="robot:l_gripper_finger_joint" axis="0 -1 0" range="0 0.05" />
+        <!-- <geom pos="0 -0.101425 0" mesh="l_gripper_finger_link" rgba=".1 .1 .2 1"/> -->
+        <geom pos="-.05 .008 0" type="box" size="0.082 0.008 0.03" rgba="0.32 0.32 0.376 1"/>
+      </body>
+    </body>
+  </body>
+</mujocoinclude>
