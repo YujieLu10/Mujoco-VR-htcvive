@@ -28,7 +28,7 @@ Based on https://github.com/thomasweng15/vive-mujoco.
     * Open VS2015 x64 Native Tools Command Prompt
     * Navigate to `src/` directory in repo
     * Run `nmake -f makefile`
-5. Run the code after making by navigating to `mujoco200/bin/` and running `mjvive.exe ..\..\vive-mujoco\model\sawyer_rope.xml`
+5. Run the code after making by navigating to `mujoco200/bin/` and running `mjvive.exe ..\..\vive-mujoco\model\sawyer_rope.xml`->`mjvive.exe ..\..\mujoco-htcvive\model\sawyer_rope.xml`
 
 ## Notes
 
