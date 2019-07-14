@@ -6,7 +6,8 @@ Based on https://github.com/thomasweng15/vive-mujoco.
 - Optimize the Grippers and Contacts(shape, skin, parameters, solvers and so on)
 - Make the grasping task more smoothly on Mujoco Engine
 
-
+# TODO
+- Generating expert data from simulation to be used in the GAIL/bc
 
 # vive-mujoco
 
