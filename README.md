@@ -6,7 +6,8 @@ Based on https://github.com/thomasweng15/vive-mujoco.
 - Optimize the Grippers and Contacts(shape, skin, parameters, solvers and so on)
 - Make the grasping task more smoothly on Mujoco Engine
 
-
+# TODO
+- Generating expert data from simulation to be used in the GAIL/bc
 
 # vive-mujoco
 
@@ -27,7 +28,7 @@ Based on https://github.com/thomasweng15/vive-mujoco.
     * Open VS2015 x64 Native Tools Command Prompt
     * Navigate to `src/` directory in repo
     * Run `nmake -f makefile`
-5. Run the code after making by navigating to `mujoco200/bin/` and running `mjvive.exe ..\..\vive-mujoco\model\sawyer_rope.xml`
+5. Run the code after making by navigating to `mujoco200/bin/` and running `mjvive.exe ..\..\vive-mujoco\model\sawyer_rope.xml`->`mjvive.exe ..\..\mujoco-htcvive\model\sawyer_rope.xml`
 
 ## Notes
 
