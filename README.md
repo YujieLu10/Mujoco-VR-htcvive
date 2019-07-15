@@ -10,9 +10,9 @@ Based on https://github.com/thomasweng15/vive-mujoco.
 - mjvive.py currently got a black screen issue, use mjvive.cpp instead
 
 # Todo
-- Generating expert data from simulation to be used in the GAIL/bc
-- Save states, observations, rewards and other required infomaitions
-- Transform the saved contents into baselines_VRIL format(NPZ files)
+- [] Generating expert data from simulation to be used in the GAIL/bc
+- [] Save states, observations, rewards and other required infomaitions
+- [] Transform the saved contents into baselines_VRIL format(NPZ files)
 
 # vive-mujoco
 
