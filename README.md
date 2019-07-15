@@ -6,11 +6,13 @@ Based on https://github.com/thomasweng15/vive-mujoco.
 - Optimize the Grippers and Contacts(shape, skin, parameters, solvers and so on)
 - Make the grasping task more smoothly on Mujoco Engine
 
-# NOTE
+# Nots
 - mjvive.py currently got a black screen issue, use mjvive.cpp instead
 
-# TODO
+# Todo
 - Generating expert data from simulation to be used in the GAIL/bc
+- Save states, observations, rewards and other required infomaitions
+- Transform the saved contents into baselines_VRIL format(NPZ files)
 
 # vive-mujoco
 
