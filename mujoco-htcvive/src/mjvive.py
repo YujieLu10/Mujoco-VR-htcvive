@@ -25,7 +25,7 @@ import openvr
 import numpy as np
 import OpenGL.GL as gl
 from mujoco_py import functions
-from mujoco_py.builder import mjpro_path
+#from mujoco_py.builder import mjpro_path
 from mujoco_py.cymj import (MjRenderContext, MjSim, load_model_from_xml,
                             PyMjrRect, PyMjvCamera)
 from mujoco_py.generated.const import (CAT_ALL, FB_OFFSCREEN, FONT_BIG,
@@ -71,6 +71,7 @@ def initMuJoCo(filename, width2, height):
 def v_initPre():
     ''' init vr before MuJoCo init '''
     global hmd
+    print('>>>> openvr.VRApplication_Scene{}'.format(openvr.VRApplication_Scene))
     hmd.system = openvr.init(openvr.VRApplication_Scene)
     hmd.roompos = np.zeros(3)
     hmd.roommat = np.eye(3)
@@ -156,7 +157,7 @@ def v_render():
 
 
 if __name__ == '__main__':
-    filename = os.path.join(mjpro_path, 'model', 'humanoid.xml')
+    filename = os.path.join('/Users/c-ten/Desktop/CMU_PROJECT/htcvive-Mujoco/mujoco200', 'model', 'humanoid.xml')
     v_initPre()
     initMuJoCo(filename, hmd.width * 2, hmd.height)
     v_initPost()
