@@ -28,7 +28,7 @@
             <geom conaffinity="0" contype="0" group="1" mesh="l6" rgba="0.5 0.1 0.1 0.5" type="mesh" euler="0 3.14 0"/>
         </body>
 
-        <body name="pushBlock" pos="-0.15 0 0.72">
+        <body name="pushBlock" pos="-5.15 0 0.72">
             <!--<freejoint name="push_block_slide"/>-->
             <joint axis="1 0 0" damping="0.001" name="push_block_slide0" pos="0 0 0" type="slide"/>
             <joint axis="0 1 0" damping="0.001" name="push_block_slide1" pos="0 0 0" type="slide"/>
@@ -36,7 +36,7 @@
             <geom size="0.025 0.025 0.025" type="box" name="object0" material="block_mat" mass="50000"></geom>
         </body>
 
-        <body name="Rope_B7" pos="-0.15 0.5 0.72">
+        <body name="Rope_B7" pos="-5.15 0.5 0.72">
             <freejoint name="Rope_ref"/>
             <composite prefix='Rope_' count="15 1 1" offset="0 0 2" spacing="0.04" type="rope">
                 <joint damping="0.005" kind="main"/>
@@ -44,7 +44,7 @@
             </composite>
         </body>
 
-        <body name="targetRope_B7" pos="-0.15 0.5 0.72">
+        <body name="targetRope_B7" pos="-5.15 0.5 0.72">
             <freejoint name="targetRope_ref"/>
             <composite prefix='targetRope_' count="15 1 1" offset="0 0 2" spacing="0.04" type="rope">
                 <joint damping="0.005" kind="main"/>
@@ -63,7 +63,7 @@
         <!--<geom type="capsule" size=".005 0.005" rgba=".8 .2 .1 1"/>-->
     <!--</composite>-->
 <!--</body>-->
-        <body name="B3_5" pos="0 0 1">
+        <body name="B3_5" pos="-2.8 -1.3 10">
             <freejoint/>
             <composite type="cloth" count="9 9 1" spacing="0.05" flatinertia="0.01">
                 <joint kind="main" damping="0.005"/>
@@ -71,6 +71,15 @@
                 <geom type="capsule" size="0.015 0.01" rgba=".8 .2 .1 1"/>
             </composite>
         </body> 
+        
+        <!-- <body name="targetB3_5" pos="-2.8 -1.3 10">
+            <freejoint/>
+            <composite type="cloth" count="9 9 1" spacing="0.05" flatinertia="0.01">
+                <joint kind="main" damping="0.005"/>
+                <skin material="matcarpet" texcoord="true" inflate="0.005" subgrid="2"/>
+                <geom type="capsule" size="0.015 0.01" rgba=".8 .2 .1 0.3"/>
+            </composite>
+        </body>  -->
         <!-- <composite type="cloth" count="20 20 1" spacing="0.05" flatinertia="0.01"> -->
     </worldbody>
     

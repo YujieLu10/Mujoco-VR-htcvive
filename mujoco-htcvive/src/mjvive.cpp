@@ -486,7 +486,14 @@ void v_update(int flag)
     int n, i;
     mjvGeom* g;
 
+    int bodyid = mj_name2id(m, mjOBJ_BODY, "B3_5");
+    int qposadr = -1, qveladr = -1;
+
+    qposadr = m->jnt_qposadr[m->body_jntadr[bodyid]];
+    qveladr = m->jnt_dofadr[m->body_jntadr[bodyid]];
+    printf(">>> qposadr %f\n", qposadr);
     // get new poses
+    //printf(">>>> camera position scn camera 0 %d %d %d\n", scn.camera[1].pos[0], scn.camera[0].pos[1],scn.camera[0].pos[2] );
     TrackedDevicePose_t poses[k_unMaxTrackedDeviceCount];
     VRCompositor()->WaitGetPoses(poses, k_unMaxTrackedDeviceCount, NULL, 0 );
 
@@ -700,7 +707,7 @@ void v_update(int flag)
             {
                 mju_mulPose(ctl[n].targetpos, ctl[n].targetquat,
                     ctl[n].pos, ctl[n].quat, ctl[n].relpos, ctl[n].relquat);
-                printf("update target pose");
+
             }
             else
             {

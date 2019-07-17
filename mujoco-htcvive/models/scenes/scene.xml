@@ -38,9 +38,9 @@
         <light directional="true" diffuse=".4 .4 .4" specular="0.1 0.1 0.1" pos="0 0 5.0" dir="0 0 -1" castshadow="false"/>
         <light directional="true" diffuse=".6 .6 .6" specular="0.2 0.2 0.2" pos="0 0 4" dir="0 0 -1"  castshadow="false" />
 
-        <geom name='tableTop' material='MatGnd' type='plane' pos='0 0.25 0.7' size='0.8 0.6 0.4' conaffinity="3" contype="3"/>
+        <geom name='tableTop' material='MatGnd' type='plane' pos='-3 -1.5 1' size='0.8 0.6 0.4' conaffinity="3" contype="3"/>
 
-        <geom name="ground" type="plane" size="0 0 1" pos="0 0 0" quat="1 0 0 0" material="matplane" condim="1"/>
+        <geom name="ground" type="plane" size="0 0 1" pos="-3 -1.5 0" quat="1 0 0 0" material="matplane" condim="1"/>
 
         <!--<body mocap="true" pos="-.1 .05 0" zaxis=".5 0 1">-->
             <!--<geom type="capsule" size=".1 .1" material="matmarble" group="1" condim="1"/>-->

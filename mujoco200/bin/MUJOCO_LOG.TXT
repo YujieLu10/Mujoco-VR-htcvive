@@ -115,3 +115,9 @@ ERROR: Could not init VR runtime: Another app was already launching (117)
 Mon Jul  8 17:41:50 2019
 ERROR: Expected HMD and at least one Controller
 
+Mon Jul 15 23:00:31 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 87. The simulation is unstable. Time = 1.4400.
+
+Mon Jul 15 23:05:44 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 7.2450.
+
