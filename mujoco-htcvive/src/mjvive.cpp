@@ -24,7 +24,7 @@ using namespace vr;
 // MuJoCo model and data
 mjModel* m = 0;
 mjData* d = 0;
-
+mjtJoint* joint = 0;
 // MuJoCo visualization
 mjvScene scn;
 mjvOption vopt;
@@ -486,12 +486,31 @@ void v_update(int flag)
     int n, i;
     mjvGeom* g;
 
-    int bodyid = mj_name2id(m, mjOBJ_BODY, "B3_5");
-    int qposadr = -1, qveladr = -1;
+    // int bodyid = mj_name2id(m, mjOBJ_BODY, "B3_5");
+    // int qposadr = -1, qveladr = -1;
 
-    qposadr = m->jnt_qposadr[m->body_jntadr[bodyid]];
-    qveladr = m->jnt_dofadr[m->body_jntadr[bodyid]];
-    printf(">>> qposadr %f\n", qposadr);
+    // qposadr = m->jnt_qposadr[m->body_jntadr[bodyid]];
+    // qveladr = m->jnt_dofadr[m->body_jntadr[bodyid]];
+    // printf(">>> qposadr %f qvel%f\n", qposadr, qveladr);
+    // haptic api
+    // mjInfo info;
+    // mj_info(&info);
+    // int bodyid = mj_name2id("body", "B3_5");
+    
+    // int qposadr = -1, qvelar = -1;
+
+    // for(int i = 0; i < info.njnt; i++)
+    // {
+    //     if(info.jnt_bodyid[i] == bodyid && info.jnt_type[i]==mjJNT_FREE)
+    //     {
+    //         qposadr = info.jnt_qposadr[i];
+    //         qveladr = info.jnt_dofadr[i];
+    //         break;
+    //     }
+    // }
+
+
+    //printf(">>> hmd id %d  pos %f", hmd.id, hmd.roompos[0] );
     // get new poses
     //printf(">>>> camera position scn camera 0 %d %d %d\n", scn.camera[1].pos[0], scn.camera[0].pos[1],scn.camera[0].pos[2] );
     TrackedDevicePose_t poses[k_unMaxTrackedDeviceCount];
@@ -1301,6 +1320,25 @@ void v_update_playback(std::vector<std::string> sep)
 // render to vr and window
 void v_render(void)
 {
+    // int bodyid = mj_name2id(m, mjOBJ_BODY, "B3_5");
+    // int qposadr = -1, qveladr = -1;
+    // mjtNum qbodypos;
+    // int geomnum;
+
+    // // make sure we have a floating body: it has a single free joint
+    // if( bodyid>=0 && m->body_jntnum[bodyid]==1 && 
+    //     m->jnt_type[m->body_jntadr[bodyid]]==mjJNT_FREE )
+    // {
+    //     // extract the addresses from the joint specification
+    //     qposadr = m->jnt_qposadr[m->body_jntadr[bodyid]];
+    //     qveladr = m->jnt_dofadr[m->body_jntadr[bodyid]];
+    //     qbodypos = m->body_pos[m->body_jntadr[bodyid]];
+    //     geomnum = m->body_geomnum[m->body_jntadr[bodyid]];
+    //     //printf(">>> geomnum : %d\n", geomnum);
+    // }
+
+
+    
     // resolve multi-sample offscreen buffer
     glBindFramebuffer(GL_READ_FRAMEBUFFER, con.offFBO);
     glReadBuffer(GL_COLOR_ATTACHMENT0);
@@ -1472,6 +1510,7 @@ int main(int argc, const char** argv)
             if( ctl[n].valid && ctl[n].tool==vTOOL_PULL &&
                 ctl[n].body>0 && ctl[n].hold[vBUTTON_TRIGGER] )
             {
+                //printf(">>> clt hold id %d hold %d\n", n, ctl[n].hold[vBUTTON_TRIGGER]);
                 // perpare mjvPerturb object
                 pert.active = mjPERT_TRANSLATE | mjPERT_ROTATE;
                 pert.select = ctl[n].body;
@@ -1481,6 +1520,10 @@ int main(int argc, const char** argv)
                 // apply
                 mjv_applyPerturbPose(m, d, &pert, 0);
                 mjv_applyPerturbForce(m, d, &pert);
+            }
+            else
+            {
+                //printf(">>> else clt hold id %d hold %d\n", n, ctl[n].hold[vBUTTON_TRIGGER]);
             }
         // play back from txt file
         
@@ -1531,8 +1574,9 @@ int main(int argc, const char** argv)
             d->mocap_quat[7] = ctl[1].quat[3];
             if(flag[0] == '1')
             {
+                // action : pos and quat of controller and btnTrigger
                 myfile.open("C:/Users/yujie/.mujoco/mocap_test.txt", std::ios_base::app);
-                myfile << "mocap " << d->mocap_pos[0] << " " <<d->mocap_pos[1] << " "<<d->mocap_pos[2] << " "<<d->mocap_pos[3] << " "<<d->mocap_pos[4] << " "<<d->mocap_pos[5] << " " << d->mocap_quat[0] << " "<< d->mocap_quat[1] << " "<< d->mocap_quat[2] << " "<< d->mocap_quat[3] << " "<< d->mocap_quat[4] << " "<< d->mocap_quat[5] << " "<< d->mocap_quat[6] << " "<< d->mocap_quat[7] << "\n";
+                myfile << "mocap " << d->mocap_pos[0] << " " <<d->mocap_pos[1] << " "<<d->mocap_pos[2] << " "<<d->mocap_pos[3] << " "<<d->mocap_pos[4] << " "<<d->mocap_pos[5] << " " << d->mocap_quat[0] << " "<< d->mocap_quat[1] << " "<< d->mocap_quat[2] << " "<< d->mocap_quat[3] << " "<< d->mocap_quat[4] << " "<< d->mocap_quat[5] << " "<< d->mocap_quat[6] << " "<< d->mocap_quat[7] << "btnTrigger " << ctl[0].hold[vBUTTON_TRIGGER] << " " << ctl[1].hold[vBUTTON_TRIGGER] << "\n";
                 myfile.close();
             }
         }
@@ -1548,6 +1592,28 @@ int main(int argc, const char** argv)
 			d->ctrl[lGripper] = m->actuator_ctrlrange[2 * lGripper] + scale*(1.0 - ctl[0].triggerpos)*
 				(m->actuator_ctrlrange[2 * lGripper + 1] - m->actuator_ctrlrange[2 * lGripper]);
 		}
+
+        // int bodyid = mj_name2id(m, mjOBJ_BODY, "B3_5");
+        // int qposadr = -1, qveladr = -1;
+
+        // // make sure we have a floating body: it has a single free joint
+        // if( bodyid>=0 && m->body_jntnum[bodyid]==1 && 
+        //     m->jnt_type[m->body_jntadr[bodyid]]==mjJNT_FREE )
+        // {
+        //     // extract the addresses from the joint specification
+        //     qposadr = m->jnt_qposadr[m->body_jntadr[bodyid]];
+        //     qveladr = m->jnt_dofadr[m->body_jntadr[bodyid]];
+        //     printf(">>> qposadr : %d\n", qposadr);
+        // }
+
+        // int bodyid = mj_name2id(m, mjOBJ_BODY, "B3_5");
+        // mjtNum qpos, quat;
+
+        // qpos = d->geom_xpos[m->body_jntadr[1]];
+        // //qpos = m->jnt_qposadr[m->body_jntadr[bodyid]];
+        // quat = m->mesh_vertnum[m->body_jntadr[bodyid]];
+        // mjtNum statc[3];
+        //printf(">>> qpos %f quat %f\n", qpos, quat);
 
         // (tweng) Control gripper if sawyer
 		int rGripperRJoint = mj_name2id(m, mjOBJ_ACTUATOR, "r_gripper_jr_joint");

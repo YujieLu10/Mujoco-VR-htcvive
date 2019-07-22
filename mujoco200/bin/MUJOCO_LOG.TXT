@@ -121,3 +121,765 @@ WARNING: Nan, Inf or huge value in QACC at DOF 87. The simulation is unstable. T
 Mon Jul 15 23:05:44 2019
 WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 7.2450.
 
+Wed Jul 17 15:18:51 2019
+ERROR: Expected HMD and at least one Controller
+
+Wed Jul 17 19:49:47 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 19:50:42 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Wed Jul 17 19:50:56 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 19:54:53 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Wed Jul 17 19:55:04 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Wed Jul 17 19:55:26 2019
+ERROR: Expected HMD and at least one Controller
+
+Wed Jul 17 19:55:40 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 19:56:33 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 19:57:09 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 20:09:54 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 20:12:51 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 20:27:40 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 20:28:09 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 20:37:11 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 20:37:56 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 20:44:13 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 20:44:37 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 20:54:32 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 20:55:10 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 20:56:19 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:03:09 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:04:12 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:05:49 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:09:16 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:09:56 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:17:29 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:17:47 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:22:17 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:24:36 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:24:57 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:27:58 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:28:13 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:28:43 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:29:41 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:30:40 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:34:00 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:34:33 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:48:05 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:48:50 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:49:04 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:49:27 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:49:47 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 21:53:47 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 22:01:33 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 22:01:49 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Wed Jul 17 22:01:56 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 22:02:32 2019
+ERROR: Expected HMD and at least one Controller
+
+Wed Jul 17 22:02:47 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 22:08:36 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 22:10:13 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 18. The simulation is unstable. Time = 5.5100.
+
+Wed Jul 17 22:11:46 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 22:12:15 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 22:12:38 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Wed Jul 17 22:26:00 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 14:53:57 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 15:18:17 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 15:31:00 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 15:32:48 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Thu Jul 18 15:33:12 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 15:34:06 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 15:35:33 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 15:36:28 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 15:37:42 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 16:16:42 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Thu Jul 18 16:17:06 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 16:18:34 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 16:19:00 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 16:20:34 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 16:20:51 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 16:24:08 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 17:29:59 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 17:40:40 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 17:41:13 2019
+ERROR: Could not init VR runtime: VR system shutting down (119)
+
+Thu Jul 18 17:41:42 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 17:42:35 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 17:42:56 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 17:43:36 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 17:44:29 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 17:44:40 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 17:45:31 2019
+ERROR: Expected HMD and at least one Controller
+
+Thu Jul 18 17:46:19 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 17:47:37 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 17:49:12 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0000.
+
+Thu Jul 18 17:50:40 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 17:51:42 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0150.
+
+Thu Jul 18 17:55:10 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0000.
+
+Thu Jul 18 17:57:36 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0000.
+
+Thu Jul 18 17:59:24 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0000.
+
+Thu Jul 18 17:59:58 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0000.
+
+Thu Jul 18 18:00:05 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 19. The simulation is unstable. Time = 0.6750.
+
+Thu Jul 18 18:00:05 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0000.
+
+Thu Jul 18 18:00:10 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0000.
+
+Thu Jul 18 18:00:41 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0000.
+
+Thu Jul 18 18:01:05 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0000.
+
+Thu Jul 18 18:01:57 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0000.
+
+Thu Jul 18 18:02:29 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0000.
+
+Thu Jul 18 18:03:14 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0000.
+
+Thu Jul 18 18:05:33 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 3000. Time = 0.0000.
+
+Thu Jul 18 18:07:09 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 5000. Time = 0.0000.
+
+Thu Jul 18 18:07:46 2019
+WARNING: Pre-allocated constraint buffer is full. Increase njmax above 5000. Time = 0.0000.
+
+Thu Jul 18 18:40:37 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 340. The simulation is unstable. Time = 24.0400.
+
+Thu Jul 18 19:36:09 2019
+ERROR: Expected HMD and at least one Controller
+
+Thu Jul 18 19:36:53 2019
+ERROR: Expected HMD and at least one Controller
+
+Thu Jul 18 20:55:37 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 22. The simulation is unstable. Time = 0.0250.
+
+Thu Jul 18 20:56:02 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 7. The simulation is unstable. Time = 0.0250.
+
+Thu Jul 18 21:02:45 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 22. The simulation is unstable. Time = 0.0300.
+
+Thu Jul 18 21:03:12 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 22. The simulation is unstable. Time = 0.0300.
+
+Thu Jul 18 21:21:48 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 322. The simulation is unstable. Time = 11.4250.
+
+Thu Jul 18 21:35:12 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 265. The simulation is unstable. Time = 104.4550.
+
+Thu Jul 18 22:04:34 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 289. The simulation is unstable. Time = 0.0700.
+
+Thu Jul 18 22:28:12 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 269. The simulation is unstable. Time = 5.7850.
+
+Thu Jul 18 23:12:24 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 268. The simulation is unstable. Time = 3.5000.
+
+Thu Jul 18 23:44:22 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 265. The simulation is unstable. Time = 3.3200.
+
+Fri Jul 19 00:42:19 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 265. The simulation is unstable. Time = 8.8150.
+
+Fri Jul 19 01:06:04 2019
+ERROR: Expected HMD and at least one Controller
+
+Fri Jul 19 13:38:52 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Fri Jul 19 13:39:01 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 292. The simulation is unstable. Time = 0.0700.
+
+Fri Jul 19 13:40:14 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Jul 19 13:40:40 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 367. The simulation is unstable. Time = 3.4150.
+
+Fri Jul 19 13:53:23 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Jul 19 14:02:24 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Fri Jul 19 14:07:14 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Jul 19 14:07:18 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Jul 19 14:18:50 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Jul 19 14:22:55 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Jul 19 14:55:23 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 552. The simulation is unstable. Time = 0.0700.
+
+Fri Jul 19 15:52:49 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Jul 19 15:53:29 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Fri Jul 19 15:53:42 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 19. The simulation is unstable. Time = 0.1500.
+
+Fri Jul 19 15:54:16 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Fri Jul 19 15:56:50 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Jul 19 16:44:11 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Jul 19 16:46:25 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Jul 19 16:46:31 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Jul 19 19:25:19 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sat Jul 20 23:45:14 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sat Jul 20 23:45:46 2019
+ERROR: Expected HMD and at least one Controller
+
+Sun Jul 21 00:13:55 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 19. The simulation is unstable. Time = 45.8400.
+
+Sun Jul 21 14:04:27 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 14:24:13 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 14:28:44 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 14:29:33 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 14:35:29 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 14:54:51 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 14:55:06 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 97. The simulation is unstable. Time = 2.4350.
+
+Sun Jul 21 14:57:12 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 21. The simulation is unstable. Time = 0.2850.
+
+Sun Jul 21 14:58:54 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 14:59:05 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 43. The simulation is unstable. Time = 0.4650.
+
+Sun Jul 21 15:01:15 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 15:01:32 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 15:01:44 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 15:01:58 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 46. The simulation is unstable. Time = 0.4650.
+
+Sun Jul 21 15:02:24 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 15:03:01 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 15:03:11 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 274. The simulation is unstable. Time = 3.4200.
+
+Sun Jul 21 15:04:41 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 172. The simulation is unstable. Time = 1.2900.
+
+Sun Jul 21 15:14:37 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 15:16:28 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 15:16:43 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 82. The simulation is unstable. Time = 1.4250.
+
+Sun Jul 21 15:19:39 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 28. The simulation is unstable. Time = 1.4050.
+
+Sun Jul 21 15:20:39 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 15:23:50 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 32. The simulation is unstable. Time = 1.5850.
+
+Sun Jul 21 15:24:17 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 15:29:33 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 15:34:24 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 298. The simulation is unstable. Time = 254.1650.
+
+Sun Jul 21 15:42:13 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 15:43:18 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 15:43:28 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 274. The simulation is unstable. Time = 0.0700.
+
+Sun Jul 21 15:43:52 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 274. The simulation is unstable. Time = 0.0700.
+
+Sun Jul 21 15:44:51 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 15:45:46 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 15:46:30 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 15:47:14 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 15:47:56 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 15:48:47 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 15:49:27 2019
+ERROR: Could not init VR runtime: Connect to VR Server Failed (301)
+
+Sun Jul 21 15:50:13 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 277. The simulation is unstable. Time = 38.7600.
+
+Sun Jul 21 16:01:38 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 175. The simulation is unstable. Time = 9.2300.
+
+Sun Jul 21 16:01:57 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 178. The simulation is unstable. Time = 9.2300.
+
+Sun Jul 21 16:03:35 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 278. The simulation is unstable. Time = 68.9200.
+
+Sun Jul 21 16:08:38 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 40. The simulation is unstable. Time = 11.0600.
+
+Sun Jul 21 16:09:09 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 154. The simulation is unstable. Time = 9.3250.
+
+Sun Jul 21 16:18:31 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 278. The simulation is unstable. Time = 18.9050.
+
+Sun Jul 21 16:18:31 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 23. The simulation is unstable. Time = 0.0100.
+
+Sun Jul 21 16:21:55 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 208. The simulation is unstable. Time = 14.9300.
+
+Sun Jul 21 16:21:55 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 22. The simulation is unstable. Time = 0.0100.
+
+Sun Jul 21 16:22:24 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 208. The simulation is unstable. Time = 14.9300.
+
+Sun Jul 21 16:22:24 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 22. The simulation is unstable. Time = 0.0100.
+
+Sun Jul 21 16:31:50 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 296. The simulation is unstable. Time = 36.5500.
+
+Sun Jul 21 16:31:50 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 23. The simulation is unstable. Time = 0.0100.
+
+Sun Jul 21 16:36:12 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 326. The simulation is unstable. Time = 0.0550.
+
+Sun Jul 21 16:36:13 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 23. The simulation is unstable. Time = 0.0100.
+
+Sun Jul 21 16:38:35 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 271. The simulation is unstable. Time = 0.0600.
+
+Sun Jul 21 16:38:36 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 23. The simulation is unstable. Time = 0.0100.
+
+Sun Jul 21 16:38:52 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 352. The simulation is unstable. Time = 0.0550.
+
+Sun Jul 21 16:38:52 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 23. The simulation is unstable. Time = 0.0100.
+
+Sun Jul 21 16:38:58 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 277. The simulation is unstable. Time = 0.0600.
+
+Sun Jul 21 16:38:58 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 23. The simulation is unstable. Time = 0.0100.
+
+Sun Jul 21 16:39:27 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 277. The simulation is unstable. Time = 0.0600.
+
+Sun Jul 21 16:39:27 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 23. The simulation is unstable. Time = 0.0100.
+
+Sun Jul 21 16:39:49 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 271. The simulation is unstable. Time = 0.0550.
+
+Sun Jul 21 16:39:49 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 23. The simulation is unstable. Time = 0.0100.
+
+Sun Jul 21 16:40:05 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 275. The simulation is unstable. Time = 0.0600.
+
+Sun Jul 21 16:40:05 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 23. The simulation is unstable. Time = 0.0100.
+
+Sun Jul 21 16:46:16 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 349. The simulation is unstable. Time = 0.0550.
+
+Sun Jul 21 16:46:16 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 23. The simulation is unstable. Time = 0.0100.
+
+Sun Jul 21 16:57:48 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 19. The simulation is unstable. Time = 45.3800.
+
+Sun Jul 21 18:27:49 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 18:28:43 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 18:28:52 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 23. The simulation is unstable. Time = 0.0300.
+
+Sun Jul 21 18:29:23 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 23. The simulation is unstable. Time = 0.0300.
+
+Sun Jul 21 18:30:07 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 18:31:00 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 18:33:17 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 18:36:13 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 18:37:07 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 22. The simulation is unstable. Time = 0.0550.
+
+Sun Jul 21 18:39:35 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 18:39:38 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 18:39:52 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 19. The simulation is unstable. Time = 0.0800.
+
+Sun Jul 21 18:42:52 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 18:43:03 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 271. The simulation is unstable. Time = 0.0500.
+
+Sun Jul 21 18:43:45 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 18:49:52 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 18:49:55 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 18:50:08 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 19. The simulation is unstable. Time = 0.4850.
+
+Sun Jul 21 18:52:52 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 18:57:07 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 18:59:03 2019
+WARNING: Inertia matrix is too close to singular at DOF 23. Check model. Time = 4.6350.
+
+Sun Jul 21 18:59:03 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 19. The simulation is unstable. Time = 4.6350.
+
+Sun Jul 21 18:59:52 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 18:59:55 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 19:01:20 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 175. The simulation is unstable. Time = 92.1850.
+
+Sun Jul 21 19:04:21 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 151. The simulation is unstable. Time = 0.2250.
+
+Sun Jul 21 19:04:48 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 19:06:31 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 19. The simulation is unstable. Time = 120.1600.
+
+Sun Jul 21 19:26:10 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 20. The simulation is unstable. Time = 1.4000.
+
+Sun Jul 21 19:26:21 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 235. The simulation is unstable. Time = 0.7950.
+
+Sun Jul 21 19:27:36 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 38. The simulation is unstable. Time = 6.6350.
+
+Sun Jul 21 20:33:32 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 20:44:51 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 271. The simulation is unstable. Time = 92.2750.
+
+Sun Jul 21 20:57:03 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Sun Jul 21 21:14:46 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 21:15:22 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Sun Jul 21 21:21:17 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 24. The simulation is unstable. Time = 1.1900.
+
+Sun Jul 21 21:22:47 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 19. The simulation is unstable. Time = 0.6550.
+
+Sun Jul 21 21:23:23 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 274. The simulation is unstable. Time = 0.0900.
+
+Sun Jul 21 21:23:26 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 275. The simulation is unstable. Time = 0.0600.
+
+Sun Jul 21 21:23:26 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 274. The simulation is unstable. Time = 0.0550.
+
+Sun Jul 21 21:23:27 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 274. The simulation is unstable. Time = 0.0650.
+
+Sun Jul 21 21:23:27 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 274. The simulation is unstable. Time = 0.0550.
+
+Sun Jul 21 21:23:52 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 58. The simulation is unstable. Time = 1.6700.
+
+Sun Jul 21 21:25:15 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 46. The simulation is unstable. Time = 0.1350.
+
+Sun Jul 21 21:27:32 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 3. The simulation is unstable. Time = 37.9000.
+

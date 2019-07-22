@@ -1,0 +1,77 @@
+<mujoco>
+    <compiler angle="radian" meshdir="meshes/" />
+
+    <option timestep="0.002">
+        <flag warmstart="enable"/>
+    </option>
+
+    <include file="robots/sawyer/floatinggripper_shared.xml"/>
+    <include file="robots/sawyer/floatinggripper_actuator_left.xml"/>
+    <include file="robots/sawyer/floatinggripper_actuator_right.xml"/>
+    <include file="scenes/scene.xml"/>
+
+    <worldbody>
+        <include file="robots/sawyer/floatinggripper_left.xml"/>
+        <include file="robots/sawyer/floatinggripper_right.xml"/>
+
+        <body name="mocap0" mocap="true" pos="0 -1.11 1.5" euler="0 0 0">
+            <geom conaffinity="0" contype="0" group="1" mesh="l6" rgba="0.5 0.1 0.1 0.5" type="mesh" euler="0 3.14 0"/>
+        </body>
+
+        <body name="mocap1" mocap="true" pos="-1 -1.11 1.5" euler="0 0 0">
+            <geom conaffinity="0" contype="0" group="1" mesh="l6" rgba="0.5 0.1 0.1 0.5" type="mesh" euler="0 3.14 0"/>
+        </body>
+
+        <body name="pushBlock" pos="-0.15 0 0.72">
+            <!--<freejoint name="push_block_slide"/>-->
+            <joint axis="1 0 0" damping="0.001" name="push_block_slide0" pos="0 0 0" type="slide"/>
+            <joint axis="0 1 0" damping="0.001" name="push_block_slide1" pos="0 0 0" type="slide"/>
+            <joint axis="0 0 1" damping="0.001" name="push_block_slide2" pos="0 0 0" type="slide"/>
+            <geom size="0.025 0.025 0.025" type="box" name="object0" material="block_mat" mass="50000"></geom>
+        </body>
+
+        <body name="B3_5" pos="-0.15 0.5 0.72">
+            <freejoint name="cloth_ref"/>
+            <composite count="9 9 1" spacing="0.025" type="cloth" flatinertia="0.01" offset="0 0 1">
+                <joint stiffness="0.02" damping="0.001" kind="main"/>
+                <!-- adding stiffness is primarily what enables folding. increased stiffness means easier to fold, but more carpetlike -->
+                <!--joint kind="twist"/-->
+                <!-- enabling twist joint makes inertial matrix freak out. including this might be good, but unsure of parameters to pick to enable non-buggy sim. -->
+                <joint kind="stretch" stiffness="0.0001"/>
+                <!-- playing with stretch joint might be helpful for making it behave less like a carpet when it is stiff -->
+                <skin material="matcarpet" texcoord="true" inflate="0.005" subgrid="3"/>
+                <geom rgba=".8 .2 .1 1" size=".01 .005" type="capsule"/>
+                <!-- adding friction to geom might be a good way to make the material less like a silky, slippery carpet /-->
+            </composite>
+        </body>
+
+        <body name="CB4_6" pos="-0.15 0 0.4">
+            <freejoint name="cloth_ref0"/>
+            <composite prefix="C" count="9 9 1" spacing="0.025" type="cloth" flatinertia="0.01" offset="0 0 1">
+                <joint stiffness="0.02" damping="0.0001" kind="main"/>
+                <!-- adding stiffness is primarily what enables folding. increased stiffness means easier to fold, but more carpetlike -->
+                <!--joint kind="twist"/-->
+                <!-- enabling twist joint makes inertial matrix freak out. including this might be good, but unsure of parameters to pick to enable non-buggy sim. -->
+                <joint kind="stretch" stiffness="0.001"/>
+                <!-- playing with stretch joint might be helpful for making it behave less like a carpet when it is stiff -->
+                <skin material="matcarpet" texcoord="true" inflate="0.005" subgrid="3"/>
+                <geom rgba=".8 .2 .1 1" size=".01 .005" type="capsule"/>
+                <!-- adding friction to geom might be a good way to make the material less like a silky, slippery carpet /-->
+            </composite>
+        </body>
+
+        <!--body name="targetRope_B7" pos="-0.15 0.5 0.72">
+            <freejoint name="targetRope_ref"/>
+            <composite prefix='targetRope_' count="15 1 1" offset="0 0 2" spacing="0.04" type="rope">
+                <joint damping="0.005" kind="main"/>
+                <geom rgba=".8 .2 .1 0.3" size=".01 .015" type="capsule" contype='2' conaffinity='2'/>
+            </composite>
+        </body-->
+    </worldbody>
+    
+    <equality>
+        <weld body1="mocap0" body2="r_arm_l6" solref="0.01 1" solimp=".9 .9 0.01"/>
+        <weld body1="mocap1" body2="l_arm_l6" solref="0.01 1" solimp=".9 .9 0.01"/>
+    </equality>
+
+</mujoco>

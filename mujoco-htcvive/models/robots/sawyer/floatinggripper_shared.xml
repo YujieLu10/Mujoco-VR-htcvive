@@ -1,10 +1,10 @@
 <mujocoinclude>
 	<compiler angle='radian' coordinate='local' meshdir='meshes/'/>
-	<option collision='all' impratio='1' cone='elliptic' timestep='0.001' gravity='0 0 -9.8' viscosity='0' iterations='20' />
+	<option collision='all' impratio='5' cone='elliptic' timestep='0.001' gravity='0 0 -9.8' viscosity='0' iterations='20'/>
 	<!--
     <size njmax='600' nconmax='150' />
 	-->
-    <size njmax='3000' nconmax='2000' />
+    <size njmax='8000' nconmax='5000' />
 
 	<!--  ================= Visual Elements ================= /-->
     <asset>
@@ -17,7 +17,7 @@
 
 	<!--  ================= Physical Properties ================= /-->
 	<default>
-		<geom solref='0.01 1' solimp='0.95 0.95 0.01' condim='4'/>
+		<geom solref='0.01 1' solimp='0.99 0.99 0.01' condim='4'/>
 
 		<default class='arm'>
             <!--<geom material='MatGnd' rgba='.7 .4 .2 1' solref='0.01 1' solimp='0.95 0.98 0.001' contype='1' condim='1'-->
@@ -36,11 +36,11 @@
 		</default>
 
 		<default class='gripper_pads'>
-			<geom friction='1 0.005 0.0001' solref='0.01 1' solimp='0.95 0.98 0.001' condim='4' density='100'/>
+			<geom friction='1.5 1.5 1.5' solref='0.01 1' solimp='0.99 0.99 0.01' condim='4' density='100'/>
 		</default>
 
 		<default class='takktile_unit'>
-			<geom friction='5 0.003 0.0001' solref='0.008 1' solimp='0.95 0.99 0.0001' condim='6' density='300' size='0.003 0.002 0.003'  type='box' rgba='0.9 0.9 0.1 1' />
+			<geom friction='5 0.3 0.1' solref='0.01 1' solimp='0.99 0.99 0.01' condim='6' density='300' size='0.003 0.002 0.003'  type='box' rgba='0.9 0.9 0.1 1' />
 			<site size='0.0035 0.001 0.0035' type='box' rgba='0.9 0.9 0.3 0.2' />
 		</default>
 	</default>
