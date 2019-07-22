@@ -10,8 +10,6 @@
     <include file="robots/sawyer/floatinggripper_actuator_right.xml"/>
     <include file="scenes/scene.xml"/>
 
-
-
     <worldbody>
         <include file="robots/sawyer/floatinggripper_left.xml"/>
         <include file="robots/sawyer/floatinggripper_right.xml"/>
@@ -47,25 +45,25 @@
 
             </composite>
             <!-- <geom type="box" size=".01 .01 .01" rgba="0 .9 0 1"/> -->
-            <body name="cornerbox_1" pos="0.1 0.1 0">
-                <!-- <joint type="free"/> -->
+            <!-- <body name="cornerbox_1" pos="0.1 0.1 0">
+
                 <geom type="box" size=".01 .01 .01" rgba="0 .9 0 1"/>
             </body>
 
             <body name="cornerbox_2" pos="0.1 -0.1 0">
-                <!-- <joint type="free"/> -->
+
                 <geom type="box" size=".01 .01 .01" rgba="0 .9 0 1"/>
             </body>
 
             <body name="cornerbox_3" pos="-0.1 -0.1 0">
-                <!-- <joint type="free"/> -->
+
                 <geom type="box" size=".01 .01 .01" rgba="0 .9 0 1"/>
             </body>
 
             <body name="cornerbox_4" pos="-0.1 0.1 0">
-                <!-- <joint type="free"/> -->
+
                 <geom type="box" size=".01 .01 .01" rgba="0 .9 0 1"/>
-            </body>
+            </body> -->
 
         </body>
 
