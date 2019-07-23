@@ -1608,9 +1608,9 @@ int main(int argc, const char** argv)
             // printf(">>> qvel : %f %f %f\n", d->qvel[qveladr], d->qvel[qveladr+1], d->qvel[qveladr+2]);
         }
 
-        // int jntid = mj_name2id(m, mjOBJ_JOINT, "Cloth_J1_0_0");
-        // if(jntid > 0)
-        //     printf("jnt id %d (%f, %f)\n", jntid, m->jnt_range[2*jntid], m->jnt_range[2*jntid+1]);
+        int jntid = mj_name2id(m, mjOBJ_JOINT, "Cloth_J1_0_0");
+        if(jntid > 0)
+            printf("jnt id %d (%f, %f)\n", jntid, m->jnt_range[2*jntid], m->jnt_range[2*jntid+1]);
         // int jntid = mj_name2id(m, mjOBJ_JOINT, "cloth_ref");
         // if( jntid>=0 )
         //     printf("(%f, %f)\n", m->jnt_range[2*jntid], m->jnt_range[2*jntid+1]); 

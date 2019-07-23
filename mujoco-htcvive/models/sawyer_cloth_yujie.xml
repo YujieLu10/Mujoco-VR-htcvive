@@ -91,7 +91,7 @@
         <!-- <weld body1="testbox" body2="B3_5" solref="0.01 1" solimp="0.99 0.99 0.01"/> -->
     </equality>
 
-    <!-- <actuator>
+    <actuator>
         <motor ctrllimited="false" joint="Cloth_J0_0_0" name="tr0"/>
         <motor ctrllimited="false" joint="Cloth_J1_0_0" name="tr1"/>
         <motor ctrllimited="false" joint="Cloth_J0_1_0" name="tr2"/>
@@ -183,8 +183,8 @@
         <motor ctrllimited="false" joint="Cloth_J1_1_5" name="tr85"/>
         <motor ctrllimited="false" joint="Cloth_J0_2_5" name="tr86"/>
         <motor ctrllimited="false" joint="Cloth_J1_2_5" name="tr87"/>
-        <motor ctrllimited="false" joint="Cloth_J0_3_5" name="tr88"/>
-        <motor ctrllimited="false" joint="Cloth_J1_3_5" name="tr89"/>
+        <!-- <motor ctrllimited="false" joint="Cloth_J0_3_5" name="tr88"/>
+        <motor ctrllimited="false" joint="Cloth_J1_3_5" name="tr89"/> -->
         <motor ctrllimited="false" joint="Cloth_J0_4_5" name="tr90"/>
         <motor ctrllimited="false" joint="Cloth_J1_4_5" name="tr91"/>
         <motor ctrllimited="false" joint="Cloth_J0_5_5" name="tr92"/>
@@ -245,7 +245,7 @@
         <motor ctrllimited="false" joint="Cloth_J0_8_8" name="tr144"/>
         <motor ctrllimited="false" joint="Cloth_J1_8_8" name="tr145"/>
 
-    </actuator> -->
+    </actuator>
 
 
 </mujoco>
