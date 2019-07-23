@@ -1593,18 +1593,27 @@ int main(int argc, const char** argv)
 				(m->actuator_ctrlrange[2 * lGripper + 1] - m->actuator_ctrlrange[2 * lGripper]);
 		}
 
-        // int bodyid = mj_name2id(m, mjOBJ_BODY, "B3_5");
-        // int qposadr = -1, qveladr = -1;
+        int bodyid = mj_name2id(m, mjOBJ_BODY, "B3_5");
+        int qposadr = -1, qveladr = -1;
 
-        // // make sure we have a floating body: it has a single free joint
-        // if( bodyid>=0 && m->body_jntnum[bodyid]==1 && 
-        //     m->jnt_type[m->body_jntadr[bodyid]]==mjJNT_FREE )
-        // {
-        //     // extract the addresses from the joint specification
-        //     qposadr = m->jnt_qposadr[m->body_jntadr[bodyid]];
-        //     qveladr = m->jnt_dofadr[m->body_jntadr[bodyid]];
-        //     printf(">>> qposadr : %d\n", qposadr);
-        // }
+        // make sure we have a floating body: it has a single free joint
+        if( bodyid>=0 && m->body_jntnum[bodyid]==1 && 
+            m->jnt_type[m->body_jntadr[bodyid]]==mjJNT_FREE )
+        {
+            // extract the addresses from the joint specification
+            qposadr = m->jnt_qposadr[m->body_jntadr[bodyid]];
+            qveladr = m->jnt_dofadr[m->body_jntadr[bodyid]];
+            // printf(">>> qposadr : %d\n", qposadr);
+            // printf(">>> qpos : %f %f %f\n", d->qpos[qposadr], d->qpos[qposadr+1], d->qpos[qposadr+2]);
+            // printf(">>> qvel : %f %f %f\n", d->qvel[qveladr], d->qvel[qveladr+1], d->qvel[qveladr+2]);
+        }
+
+        // int jntid = mj_name2id(m, mjOBJ_JOINT, "Cloth_J1_0_0");
+        // if(jntid > 0)
+        //     printf("jnt id %d (%f, %f)\n", jntid, m->jnt_range[2*jntid], m->jnt_range[2*jntid+1]);
+        // int jntid = mj_name2id(m, mjOBJ_JOINT, "cloth_ref");
+        // if( jntid>=0 )
+        //     printf("(%f, %f)\n", m->jnt_range[2*jntid], m->jnt_range[2*jntid+1]); 
 
         // int bodyid = mj_name2id(m, mjOBJ_BODY, "B3_5");
         // mjtNum qpos, quat;
