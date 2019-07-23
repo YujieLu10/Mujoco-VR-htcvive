@@ -60406,3 +60406,45 @@ ERROR: Expected HMD and at least one Controller
 Mon Jul 22 20:03:58 2019
 ERROR: Expected HMD and at least one Controller
 
+Tue Jul 23 14:24:45 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 47.1450.
+
+Tue Jul 23 14:25:09 2019
+ERROR: Rank-defficient Hessian in HessianDirect
+
+Tue Jul 23 15:30:07 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Tue Jul 23 15:30:16 2019
+ERROR: Could not init VR runtime: VR system shutting down (119)
+
+Tue Jul 23 15:30:29 2019
+ERROR: Expected HMD and at least one Controller
+
+Tue Jul 23 16:49:49 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Tue Jul 23 16:52:10 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Tue Jul 23 17:35:45 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 0.0050.
+
+Tue Jul 23 17:35:51 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 0.0050.
+
+Tue Jul 23 17:36:03 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 0.0050.
+
+Tue Jul 23 17:36:26 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 0.0050.
+
+Tue Jul 23 17:36:37 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 0.0100.
+
+Tue Jul 23 17:53:39 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 20. The simulation is unstable. Time = 2.9800.
+
+Tue Jul 23 17:54:18 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 5.0150.
+

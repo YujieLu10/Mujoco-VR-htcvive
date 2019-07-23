@@ -1504,8 +1504,17 @@ int main(int argc, const char** argv)
             frametime = d->time;
         }
 
+        int clothid = mj_name2id(m, mjOBJ_BODY, "Cloth_B3_5");
+        // printf(">>> clothid %d \n", clothid);
         // apply controller perturbations
         mju_zero(d->xfrc_applied, 6*m->nbody);
+        // set external xfrc force to the cloth
+        // d->xfrc_applied[6*clothid] = 1;
+        // d->xfrc_applied[6*clothid + 1] = 100000;
+        // d->xfrc_applied[6*clothid + 2] = 100000;
+        // d->xfrc_applied[6*clothid + 3] = 100000;
+        // d->xfrc_applied[6*clothid + 4] = 100000;
+        // d->xfrc_applied[6*clothid + 5] = 100000;
         for( int n=0; n<2; n++ )
             if( ctl[n].valid && ctl[n].tool==vTOOL_PULL &&
                 ctl[n].body>0 && ctl[n].hold[vBUTTON_TRIGGER] )
@@ -1516,15 +1525,22 @@ int main(int argc, const char** argv)
                 pert.select = ctl[n].body;
                 mju_copy3(pert.refpos, ctl[n].targetpos);
                 mju_copy(pert.refquat, ctl[n].targetquat, 4);
-        
+                // printf(">>> force %f f2 %f f3 %f f4 %f f5 %f f6 %f\n", d->xfrc_applied[6*clothid], d->xfrc_applied[6*clothid + 1], d->xfrc_applied[6*clothid + 2], d->xfrc_applied[6*clothid + 3], d->xfrc_applied[6*clothid + 4], d->xfrc_applied[6*clothid + 5]);
                 // apply
                 mjv_applyPerturbPose(m, d, &pert, 0);
                 mjv_applyPerturbForce(m, d, &pert);
             }
             else
             {
-                //printf(">>> else clt hold id %d hold %d\n", n, ctl[n].hold[vBUTTON_TRIGGER]);
+                // pert.active = mjPERT_TRANSLATE | mjPERT_ROTATE;
+                // pert.select = ctl[n].body;
+                // mju_copy3(pert.refpos, ctl[n].targetpos);
+                // mju_copy(pert.refquat, ctl[n].targetquat, 4);
+                // mjv_applyPerturbPose(m, d, &pert, 0);
+                // mjv_applyPerturbForce(m, d, &pert);
+                // printf(">>> else force %f f2 %f f3 %f f4 %f f5 %f f6 %f\n", d->xfrc_applied[6*clothid], d->xfrc_applied[6*clothid + 1], d->xfrc_applied[6*clothid + 2], d->xfrc_applied[6*clothid + 3], d->xfrc_applied[6*clothid + 4], d->xfrc_applied[6*clothid + 5]);
             }
+        printf(">>> qfrc force %f actuator_force %f\n", d->qfrc_actuator[6*clothid], d->actuator_force[6*clothid]);
         // play back from txt file
         
         if(flag[0] == '0' && cnt < 600)
@@ -1608,14 +1624,24 @@ int main(int argc, const char** argv)
             // printf(">>> qvel : %f %f %f\n", d->qvel[qveladr], d->qvel[qveladr+1], d->qvel[qveladr+2]);
         }
 
-        int jntid = mj_name2id(m, mjOBJ_JOINT, "Cloth_J1_0_0");
-        if(jntid > 0)
-            printf("jnt id %d (%f, %f)\n", jntid, m->jnt_range[2*jntid], m->jnt_range[2*jntid+1]);
+        // int jntid = mj_name2id(m, mjOBJ_JOINT, "Cloth_J1_8_5");
+        // int jntposadr = -1, jnt_bodyid = -1;
+        // mjtNum localjntpos = 0, bodypos = 0;
+        // if( jntid > 0)
+        // {
+        //     jntposadr = m->jnt_qposadr[m->body_jntadr[jntid]];
+        //     localjntpos = m->jnt_pos[jntposadr];
+        //     jnt_bodyid = m->jnt_bodyid[jntid];
+        //     bodypos = d->qpos[m->jnt_qposadr[m->body_jntadr[jnt_bodyid]]];
+        //     printf("jntposadr %d localjntpos %f jntbodyid %d bodypos %f\n", jntposadr, localjntpos, jnt_bodyid, bodypos);
+        // }
+        // if(jntid > 0)
+        //     printf("jnt id %d (%f, %f)\n", jntid, m->jnt_range[2*jntid], m->jnt_range[2*jntid+1]);
         // int jntid = mj_name2id(m, mjOBJ_JOINT, "cloth_ref");
         // if( jntid>=0 )
         //     printf("(%f, %f)\n", m->jnt_range[2*jntid], m->jnt_range[2*jntid+1]); 
 
-        // int bodyid = mj_name2id(m, mjOBJ_BODY, "B3_5");
+        // int bodyid = mj_name2id(m, mjOBJ_BODY, "Cloth_B3_5");
         // mjtNum qpos, quat;
 
         // qpos = d->geom_xpos[m->body_jntadr[1]];
