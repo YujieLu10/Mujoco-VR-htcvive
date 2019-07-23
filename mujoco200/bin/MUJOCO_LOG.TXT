@@ -60406,3 +60406,6 @@ ERROR: Expected HMD and at least one Controller
 Mon Jul 22 20:03:58 2019
 ERROR: Expected HMD and at least one Controller
 
+Mon Jul 22 22:04:16 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 18.0650.
+
