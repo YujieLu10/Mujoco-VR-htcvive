@@ -9,7 +9,7 @@
         <!-- <site name='gripper_origin' size='0.005' pos='0 0 0' rgba='0 0.5 0 0.25' quat='1 0 0 0'/> -->
         </body>
         <!--  ================================== /-->
-        <geom type='mesh' contype='0' conaffinity='0' group='1' rgba='0.5 0.1 0.1 1' mesh='l6' />
+        <!-- <geom type='mesh' contype='0' conaffinity='0' group='1' rgba='0.5 0.1 0.1 1'/> -->
         <geom size='0.055 0.025' pos='0 0.015 -0.01' type='cylinder' rgba='0.5 0.1 0.1 1' />
         <body name='r_arm_hand' pos='0 0 0.0245' quat='0.707107 0 0 0.707107'>
             <inertial pos='1e-08 1e-08 1e-08' quat='0.820473 0.339851 -0.17592 0.424708' mass='1e-08' diaginertia='1e-08 1e-08 1e-08' />
@@ -17,7 +17,7 @@
             <!--  ================= Gripper ================= /-->
             <body name='r_arm_gripper_base' pos='0 0 0.025'>
                 <inertial pos='0 0 0' quat='-0.5 0.5 0.5 0.5' mass='0.3' diaginertia='3e-08 2e-08 2e-08' />
-                <geom quat='0 0 0.707107 0.707107' class='viz' mesh='electric_gripper_base' />
+                <!-- <geom quat='0 0 0.707107 0.707107' class='viz'/> -->
                 <geom size='0.029 0.05' quat='0 0 0.707107 0.707107' type='cylinder' />
                 <!--<body name='arm_gripper' pos='0 0 0.1327'>
                     <inertial pos='0 0 0' mass='0.0001' diaginertia='0 0 0' />
@@ -25,7 +25,7 @@
                 <body name='r_finger_l' pos='0 -0.0015 0.02'>
                     <inertial pos='0 0 0' quat='0 0 0 -1' mass='0.02' diaginertia='0.01 0.01 0.01' />
                     <joint name='r_gripper_jl' solreflimit="0.006 1" solimplimit="0.99 0.999 0.01" pos='0 0 0' axis='0 1 0' type='slide' range='0 0.020833' springdamper='0.08 6' limited='true'/>
-                    <geom class='viz' mesh='extended_narrow' euler='1.57 1.57 0' rgba='0.1 0.1 0.1 1'/>
+                    <!-- <geom class='viz' euler='1.57 1.57 0' rgba='0.1 0.1 0.1 1'/> -->
                     <geom size='0.005 0.00675 0.05635' pos='0 0.01725 0.0615' quat='0 0 0 -1' type='box' rgba='0.1 0.1 0.1 1'/>
                     <geom size='0.005 0.025 0.0085' pos='-0.005 -0.003 0.0083' quat='0 0 0 -1' type='box' rgba='0.1 0.1 0.1 1'/>
                     <geom size='0.05 0.008 0.05' pos='0 0.012 0.095' type='box' friction="1.5 1.5 1.5" condim="4" rgba='0.3 0.3 0.3 0.9' solref='0.0001 1' solimp='0.99 0.99 0.01' class='gripper_pads' />
@@ -63,7 +63,7 @@
                 <body name='r_finger_r' pos='0 0.0015 0.02'>
                     <inertial pos='0 0 0' mass='0.02' diaginertia='0.01 0.01 0.01' />
                     <joint name='r_gripper_jr' solreflimit="0.006 1" solimplimit="0.99 0.999 0.001" pos='0 0 0' axis='0 1 0' type='slide' range='-0.020833 0' springdamper='0.08 6' limited='true'/>
-                    <geom class='viz' mesh='extended_narrow' euler='1.57 -1.57 0' rgba='0.1 0.1 0.1 1'/>
+                    <!-- <geom class='viz' euler='1.57 -1.57 0' rgba='0.1 0.1 0.1 1'/> -->
                     <geom size='0.005 0.00675 0.05635' pos='0 -0.01725 0.0615' type='box' rgba='0.1 0.1 0.1 1'/>
                     <geom size='0.005 0.025 0.0085' pos='0.005 0.003 0.0083' type='box' rgba='0.1 0.1 0.1 1'/>
                     <geom size='0.05 0.008 0.05' pos='0 -0.012 0.095' type='box' friction="1.5 1.5 1.5" condim="4" solref='0.0001 1' solimp='0.99 0.99 0.01' rgba='0.3 0.3 0.3 0.9' class='gripper_pads' />

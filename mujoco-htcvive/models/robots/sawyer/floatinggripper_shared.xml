@@ -9,10 +9,10 @@
 	<!--  ================= Visual Elements ================= /-->
     <asset>
         <mesh name='l6' file='sawyer/l6.stl' />
-		<mesh name='half_round_tip' file='sawyer/two_finger_gripper/half_round_tip.stl' />
+		<!-- <mesh name='half_round_tip' file='sawyer/two_finger_gripper/half_round_tip.stl' />
 		<mesh name='electric_gripper_base' file='sawyer/two_finger_gripper/electric_gripper_base.stl' />
         <mesh name='extended_narrow' file='sawyer/two_finger_gripper/extended_narrow.stl'/>
-        <mesh name='paddle_tip' file='sawyer/two_finger_gripper/paddle_tip.stl'/>
+        <mesh name='paddle_tip' file='sawyer/two_finger_gripper/paddle_tip.stl'/> -->
     </asset>
 
 	<!--  ================= Physical Properties ================= /-->
@@ -27,7 +27,7 @@
 		</default>
 
 		<default class='viz'>
-			<geom contype='0' conaffinity='0' group='1' type='mesh'/>
+			<!-- <geom contype='0' conaffinity='0' group='1' type='mesh'/> -->
 		</default>
 
 		<default class='gripper'>
