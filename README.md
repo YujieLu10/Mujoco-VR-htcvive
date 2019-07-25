@@ -10,7 +10,7 @@ Based on https://github.com/thomasweng15/vive-mujoco.
 - add rope/cloth weld constraint disable/enable by trigger
 - solve slipping, penetrating, welding issue
 
-# Nots
+# Notes
 - mjvive.py currently got a black screen issue, use mjvive.cpp instead
 
 # Todo
