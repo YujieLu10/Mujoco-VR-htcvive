@@ -62527,3 +62527,129 @@ WARNING: Nan, Inf or huge value in QVEL at DOF 19. The simulation is unstable. T
 Wed Jul 24 20:28:13 2019
 WARNING: Nan, Inf or huge value in QACC at DOF 22. The simulation is unstable. Time = 0.0450.
 
+Wed Jul 24 20:54:50 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 82. The simulation is unstable. Time = 33.4400.
+
+Wed Jul 24 20:56:51 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 105. The simulation is unstable. Time = 2.9850.
+
+Wed Jul 24 20:58:14 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 80. The simulation is unstable. Time = 3.0850.
+
+Wed Jul 24 20:58:33 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Wed Jul 24 20:58:59 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 19.3950.
+
+Wed Jul 24 21:00:26 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 0.8400.
+
+Wed Jul 24 21:04:25 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 22. The simulation is unstable. Time = 1.8300.
+
+Wed Jul 24 21:04:42 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 2.9900.
+
+Wed Jul 24 21:05:17 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 21. The simulation is unstable. Time = 39.3850.
+
+Wed Jul 24 21:05:17 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 194. The simulation is unstable. Time = 0.0400.
+
+Wed Jul 24 21:05:29 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 194. The simulation is unstable. Time = 0.2750.
+
+Wed Jul 24 21:07:26 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 30. The simulation is unstable. Time = 34.1750.
+
+Wed Jul 24 22:15:18 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 197. The simulation is unstable. Time = 3.0500.
+
+Wed Jul 24 22:15:25 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 94. The simulation is unstable. Time = 2.9800.
+
+Wed Jul 24 22:15:27 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 178. The simulation is unstable. Time = 3.0000.
+
+Wed Jul 24 22:18:26 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 194. The simulation is unstable. Time = 0.0650.
+
+Wed Jul 24 22:19:38 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 2.7350.
+
+Wed Jul 24 22:21:02 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 194. The simulation is unstable. Time = 3.1850.
+
+Wed Jul 24 23:15:23 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 3.0300.
+
+Wed Jul 24 23:16:11 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Wed Jul 24 23:18:29 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 32. The simulation is unstable. Time = 159.5650.
+
+Wed Jul 24 23:20:32 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 170. The simulation is unstable. Time = 43.1850.
+
+Wed Jul 24 23:23:11 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 28. The simulation is unstable. Time = 53.4600.
+
+Wed Jul 24 23:25:56 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 19. The simulation is unstable. Time = 185.7250.
+
+Wed Jul 24 23:25:56 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 70. The simulation is unstable. Time = 0.0150.
+
+Wed Jul 24 23:26:28 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Wed Jul 24 23:28:39 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 17.7350.
+
+Wed Jul 24 23:29:34 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 36. The simulation is unstable. Time = 37.0900.
+
+Wed Jul 24 23:32:35 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 138. The simulation is unstable. Time = 86.9450.
+
+Wed Jul 24 23:32:35 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 19. The simulation is unstable. Time = 0.0500.
+
+Wed Jul 24 23:32:37 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 17. The simulation is unstable. Time = 0.0400.
+
+Wed Jul 24 23:32:53 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Wed Jul 24 23:33:31 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 62. The simulation is unstable. Time = 29.6400.
+
+Wed Jul 24 23:34:09 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 19. The simulation is unstable. Time = 0.0300.
+
+Wed Jul 24 23:34:09 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 19. The simulation is unstable. Time = 0.0200.
+
+Wed Jul 24 23:40:11 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 19. The simulation is unstable. Time = 2.9900.
+
+Wed Jul 24 23:40:18 2019
+WARNING: Inertia matrix is too close to singular at DOF 145. Check model. Time = 2.9800.
+
+Wed Jul 24 23:41:34 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Wed Jul 24 23:43:49 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 176. The simulation is unstable. Time = 159.0350.
+
+Wed Jul 24 23:44:11 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 3.0100.
+
+Thu Jul 25 00:20:52 2019
+ERROR: Expected HMD and at least one Controller
+
+Thu Jul 25 00:21:24 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 0.0250.
+

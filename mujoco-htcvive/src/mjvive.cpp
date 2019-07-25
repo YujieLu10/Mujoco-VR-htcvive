@@ -564,7 +564,9 @@ void v_update(int flag)
             ctl[n].padpos[0] = state.rAxis[ctl[n].idpad].x;
             ctl[n].padpos[1] = state.rAxis[ctl[n].idpad].y;
         }
-    int weldropeid = mj_name2id(m, mjOBJ_EQUALITY, "weldrope");
+    // int weldropeid = mj_name2id(m, mjOBJ_EQUALITY, "weldrope");
+    int weldclothaid = mj_name2id(m, mjOBJ_EQUALITY, "weldcloth_a");
+    // int weldclothbid = mj_name2id(m, mjOBJ_EQUALITY, "weldcloth_b");
     // process events: button and touch only
     VREvent_t evt;
     while( hmd.system->PollNextEvent(&evt, sizeof(VREvent_t)) )
@@ -634,21 +636,22 @@ void v_update(int flag)
                 }
                 break;
             }
-            printf(">>>> eqactive %d\n", m->eq_active[weldropeid]);
+
             // process event
             switch( evt.eventType )
             {
             case VREvent_ButtonPress:
                 ctl[n].hold[button] = true;
-                if(ctl[1].hold[button])
-                {
-                    printf(">>> weldrope id %d\n", weldropeid);
-                    m->eq_active[weldropeid] = 1;
-                }
 
                 // trigger button: save relative pose
                 if( button==vBUTTON_TRIGGER )
                 {
+                    if(ctl[1].hold[button])
+                    {
+                        // printf(">>> weld cloth \n");
+                        m->eq_active[weldclothaid] = 1;
+                        // m->eq_active[weldclothbid] = 1;
+                    }
                     // reset old pose
                     for( i=0; i<9; i++ )
                     {
@@ -676,6 +679,7 @@ void v_update(int flag)
                 // pad button: change selection and show message
                 else if( button==vBUTTON_PAD && ctl[n].tool!=vTOOL_MOVE && ctl[n].tool!=vTOOL_NONE)
                 {
+
                     if( ctl[n].padpos[1]>0 )
                         ctl[n].body = mjMAX(0, ctl[n].body-1);
                     else
@@ -701,6 +705,14 @@ void v_update(int flag)
 
             case VREvent_ButtonUnpress:
                 ctl[n].hold[button] = false;
+                if( ctl[1].hold[button] == false )
+                {
+
+                    // printf(">>> un weld %d\n");
+                    m->eq_active[weldclothaid] = 0;
+                    // m->eq_active[weldclothbid] = 0;
+
+                }
                 break;
 
             case VREvent_ButtonTouch:
