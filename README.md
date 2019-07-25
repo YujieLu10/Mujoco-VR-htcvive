@@ -6,7 +6,9 @@ Based on https://github.com/thomasweng15/vive-mujoco.
 - Optimize the Grippers and Contacts(shape, skin, parameters, solvers and so on)
 - Make the grasping task more smoothly on Mujoco Engine
 
+
 - add rope/cloth weld constraint disable/enable by trigger
+- solve slipping, penetrating, welding issue
 
 # Nots
 - mjvive.py currently got a black screen issue, use mjvive.cpp instead
