@@ -564,7 +564,9 @@ void v_update(int flag)
             ctl[n].padpos[0] = state.rAxis[ctl[n].idpad].x;
             ctl[n].padpos[1] = state.rAxis[ctl[n].idpad].y;
         }
-
+    // int weldropeid = mj_name2id(m, mjOBJ_EQUALITY, "weldrope");
+    int weldclothaid = mj_name2id(m, mjOBJ_EQUALITY, "weldcloth_a");
+    // int weldclothbid = mj_name2id(m, mjOBJ_EQUALITY, "weldcloth_b");
     // process events: button and touch only
     VREvent_t evt;
     while( hmd.system->PollNextEvent(&evt, sizeof(VREvent_t)) )
@@ -644,6 +646,12 @@ void v_update(int flag)
                 // trigger button: save relative pose
                 if( button==vBUTTON_TRIGGER )
                 {
+                    if(ctl[1].hold[button])
+                    {
+                        // printf(">>> weld cloth \n");
+                        m->eq_active[weldclothaid] = 1;
+                        // m->eq_active[weldclothbid] = 1;
+                    }
                     // reset old pose
                     for( i=0; i<9; i++ )
                     {
@@ -671,6 +679,7 @@ void v_update(int flag)
                 // pad button: change selection and show message
                 else if( button==vBUTTON_PAD && ctl[n].tool!=vTOOL_MOVE && ctl[n].tool!=vTOOL_NONE)
                 {
+
                     if( ctl[n].padpos[1]>0 )
                         ctl[n].body = mjMAX(0, ctl[n].body-1);
                     else
@@ -696,6 +705,14 @@ void v_update(int flag)
 
             case VREvent_ButtonUnpress:
                 ctl[n].hold[button] = false;
+                if( ctl[1].hold[button] == false )
+                {
+
+                    // printf(">>> un weld %d\n");
+                    m->eq_active[weldclothaid] = 0;
+                    // m->eq_active[weldclothbid] = 0;
+
+                }
                 break;
 
             case VREvent_ButtonTouch:
@@ -1504,8 +1521,17 @@ int main(int argc, const char** argv)
             frametime = d->time;
         }
 
+        // int clothid = mj_name2id(m, mjOBJ_BODY, "Cloth_B3_5");
+        // printf(">>> clothid %d \n", clothid);
         // apply controller perturbations
         mju_zero(d->xfrc_applied, 6*m->nbody);
+        // set external xfrc force to the cloth
+        // d->xfrc_applied[6*clothid] = 1;
+        // d->xfrc_applied[6*clothid + 1] = 100000;
+        // d->xfrc_applied[6*clothid + 2] = 100000;
+        // d->xfrc_applied[6*clothid + 3] = 100000;
+        // d->xfrc_applied[6*clothid + 4] = 100000;
+        // d->xfrc_applied[6*clothid + 5] = 100000;
         for( int n=0; n<2; n++ )
             if( ctl[n].valid && ctl[n].tool==vTOOL_PULL &&
                 ctl[n].body>0 && ctl[n].hold[vBUTTON_TRIGGER] )
@@ -1516,17 +1542,57 @@ int main(int argc, const char** argv)
                 pert.select = ctl[n].body;
                 mju_copy3(pert.refpos, ctl[n].targetpos);
                 mju_copy(pert.refquat, ctl[n].targetquat, 4);
-        
+                // printf(">>> force %f f2 %f f3 %f f4 %f f5 %f f6 %f\n", d->xfrc_applied[6*clothid], d->xfrc_applied[6*clothid + 1], d->xfrc_applied[6*clothid + 2], d->xfrc_applied[6*clothid + 3], d->xfrc_applied[6*clothid + 4], d->xfrc_applied[6*clothid + 5]);
                 // apply
                 mjv_applyPerturbPose(m, d, &pert, 0);
                 mjv_applyPerturbForce(m, d, &pert);
             }
             else
             {
-                //printf(">>> else clt hold id %d hold %d\n", n, ctl[n].hold[vBUTTON_TRIGGER]);
+                // pert.active = mjPERT_TRANSLATE | mjPERT_ROTATE;
+                // pert.select = ctl[n].body;
+                // mju_copy3(pert.refpos, ctl[n].targetpos);
+                // mju_copy(pert.refquat, ctl[n].targetquat, 4);
+                // mjv_applyPerturbPose(m, d, &pert, 0);
+                // mjv_applyPerturbForce(m, d, &pert);
+                // printf(">>> else force %f f2 %f f3 %f f4 %f f5 %f f6 %f\n", d->xfrc_applied[6*clothid], d->xfrc_applied[6*clothid + 1], d->xfrc_applied[6*clothid + 2], d->xfrc_applied[6*clothid + 3], d->xfrc_applied[6*clothid + 4], d->xfrc_applied[6*clothid + 5]);
             }
-        // play back from txt file
+        // printf(">>> qfrc force %f actuator_force %f\n", d->qfrc_actuator[6*clothid], d->actuator_force[6*clothid]);
+
+        // add weld
+        // m->eq_obj1id
+        // m->eq_obj2id
+        // int boxa = -1, boxb = -1;
+        // printf(">>> weld eq %d eq %d eq %d eq %d eq %d eq %d eq %d\n", m->eq_obj1id[0], m->eq_obj1id[1], m->eq_obj1id[2], m->eq_obj1id[3], m->eq_obj1id[4], m->eq_obj1id[5], m->eq_obj1id[6]);
+        // boxa = mj_name2id(m, mjOBJ_BODY, "boxa");
+        // boxb = mj_name2id(m, mjOBJ_BODY, "boxb");
+        // int weldboxb = m->body_weldid[boxb];
+        // int weldboxa = m->body_weldid[boxa];
+        // printf(">>> boxa %d boxb %d weldboxa %d weldboxb id %d \n", boxa, boxb, weldboxa, weldboxb);
+
+        // int weldid = -1;
+        // weldid = mj_name2id(m, mjEQ_WELD, "weldmocap");
+
+
+
+        // int boxaid, Cloth_B0_0;
+        // boxaid = mj_name2id(m, mjOBJ_BODY, "boxa");
+        // Cloth_B0_0 = mj_name2id(m, mjOBJ_BODY, "Cloth_B0_0");
+        // // printf(">>> boxaid %d Cloth_B0_0id %d \n", boxaid, Cloth_B0_0);
+
+        // int weldid = mj_name2id(m, mjOBJ_EQUALITY, "weldbox");
+        // int obj1id = m->eq_obj1id[weldid];
+        // int obj2id = m->eq_obj2id[weldid];
+        // m->eq_obj2id[weldid] = Cloth_B0_0;
+
         
+        // printf(">>> obj1id %d obj2id %d weldid %d\n", obj1id, obj2id, weldid);
+
+        // // int nameeqadr = m->name_eqadr[mj_name2id(m, mjEQ_WELD, "boxa")];
+        // printf(">>> eq_active %d \n", m->eq_active[weldid]);
+        // m->eq_active[weldid] = 1;
+        
+        // play back from txt file        
         if(flag[0] == '0' && cnt < 600)
         {
 
@@ -1593,29 +1659,39 @@ int main(int argc, const char** argv)
 				(m->actuator_ctrlrange[2 * lGripper + 1] - m->actuator_ctrlrange[2 * lGripper]);
 		}
 
-        int bodyid = mj_name2id(m, mjOBJ_BODY, "B3_5");
-        int qposadr = -1, qveladr = -1;
+        // int bodyid = mj_name2id(m, mjOBJ_BODY, "Cloth_B0_0");
+        // int qposadr = -1, qveladr = -1;
 
-        // make sure we have a floating body: it has a single free joint
-        if( bodyid>=0 && m->body_jntnum[bodyid]==1 && 
-            m->jnt_type[m->body_jntadr[bodyid]]==mjJNT_FREE )
-        {
-            // extract the addresses from the joint specification
-            qposadr = m->jnt_qposadr[m->body_jntadr[bodyid]];
-            qveladr = m->jnt_dofadr[m->body_jntadr[bodyid]];
-            // printf(">>> qposadr : %d\n", qposadr);
-            // printf(">>> qpos : %f %f %f\n", d->qpos[qposadr], d->qpos[qposadr+1], d->qpos[qposadr+2]);
-            // printf(">>> qvel : %f %f %f\n", d->qvel[qveladr], d->qvel[qveladr+1], d->qvel[qveladr+2]);
-        }
+        // // make sure we have a floating body: it has a single free joint
+        // if( bodyid>=0 && m->body_jntnum[bodyid]==1 && 
+        //     m->jnt_type[m->body_jntadr[bodyid]]==mjJNT_FREE )
+        // {
+        //     // extract the addresses from the joint specification
+        //     qposadr = m->jnt_qposadr[m->body_jntadr[bodyid]];
+        //     qveladr = m->jnt_dofadr[m->body_jntadr[bodyid]];
+        //     // printf(">>> qposadr : %d\n", qposadr);
+        //     // printf(">>> qpos : %f %f %f\n", d->qpos[qposadr], d->qpos[qposadr+1], d->qpos[qposadr+2]);
+        //     // printf(">>> qvel : %f %f %f\n", d->qvel[qveladr], d->qvel[qveladr+1], d->qvel[qveladr+2]);
+        // }
 
-        // int jntid = mj_name2id(m, mjOBJ_JOINT, "Cloth_J1_0_0");
+        // int jntid = mj_name2id(m, mjOBJ_JOINT, "Cloth_J1_8_5");
+        // int jntposadr = -1, jnt_bodyid = -1;
+        // mjtNum localjntpos = 0, bodypos = 0;
+        // if( jntid > 0)
+        // {
+        //     jntposadr = m->jnt_qposadr[m->body_jntadr[jntid]];
+        //     localjntpos = m->jnt_pos[jntposadr];
+        //     jnt_bodyid = m->jnt_bodyid[jntid];
+        //     bodypos = d->qpos[m->jnt_qposadr[m->body_jntadr[jnt_bodyid]]];
+        //     printf("jntposadr %d localjntpos %f jntbodyid %d bodypos %f\n", jntposadr, localjntpos, jnt_bodyid, bodypos);
+        // }
         // if(jntid > 0)
         //     printf("jnt id %d (%f, %f)\n", jntid, m->jnt_range[2*jntid], m->jnt_range[2*jntid+1]);
         // int jntid = mj_name2id(m, mjOBJ_JOINT, "cloth_ref");
         // if( jntid>=0 )
         //     printf("(%f, %f)\n", m->jnt_range[2*jntid], m->jnt_range[2*jntid+1]); 
 
-        // int bodyid = mj_name2id(m, mjOBJ_BODY, "B3_5");
+        // int bodyid = mj_name2id(m, mjOBJ_BODY, "Cloth_B3_5");
         // mjtNum qpos, quat;
 
         // qpos = d->geom_xpos[m->body_jntadr[1]];
