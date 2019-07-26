@@ -62653,3 +62653,33 @@ ERROR: Expected HMD and at least one Controller
 Thu Jul 25 00:21:24 2019
 WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 0.0250.
 
+Fri Jul 26 01:48:15 2019
+ERROR: Could not init VR runtime: VR system shutting down (119)
+
+Fri Jul 26 01:50:24 2019
+ERROR: Could not init VR runtime: Hmd Not Found (108)
+
+Fri Jul 26 01:50:53 2019
+ERROR: Expected HMD and at least one Controller
+
+Fri Jul 26 01:57:25 2019
+ERROR: Could not init VR runtime: Hmd Not Found (108)
+
+Fri Jul 26 01:57:52 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 3.8850.
+
+Fri Jul 26 01:59:25 2019
+ERROR: Could not init VR runtime: Hmd Not Found (108)
+
+Fri Jul 26 01:59:49 2019
+ERROR: Could not init VR runtime: Hmd Not Found (108)
+
+Fri Jul 26 02:04:03 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 54. The simulation is unstable. Time = 6.8500.
+
+Fri Jul 26 02:04:04 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 85. The simulation is unstable. Time = 0.0250.
+
+Fri Jul 26 02:04:05 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 106. The simulation is unstable. Time = 0.0650.
+

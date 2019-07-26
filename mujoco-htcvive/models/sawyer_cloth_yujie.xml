@@ -60,6 +60,13 @@
 
         </body>
 
+        <composite type="grid" count="9 9 1" spacing="0.05" offset="0 0 1">
+            <skin material="matcarpet" inflate="0.001" subgrid="3" texcoord="true"/>
+            <geom size=".02"/>
+            <pin coord="0 0"/>
+            <pin coord="8 0"/>
+        </composite>
+
 
         <body name="boxa" pos="-0.15 0.5 0.72">
             <joint type="free"/>
