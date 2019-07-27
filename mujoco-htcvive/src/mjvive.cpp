@@ -1526,8 +1526,8 @@ int main(int argc, const char** argv)
         // apply controller perturbations
         mju_zero(d->xfrc_applied, 6*m->nbody);
         // set external xfrc force to the cloth
-        // d->xfrc_applied[6*clothid] = 1;
-        // d->xfrc_applied[6*clothid + 1] = 100000;
+        // d->xfrc_applied[6*clothid] = 0.1;
+        // d->xfrc_applied[6*clothid + 1] = 1;
         // d->xfrc_applied[6*clothid + 2] = 100000;
         // d->xfrc_applied[6*clothid + 3] = 100000;
         // d->xfrc_applied[6*clothid + 4] = 100000;
