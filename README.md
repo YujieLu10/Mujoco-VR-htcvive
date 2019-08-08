@@ -1,7 +1,7 @@
 Based on https://github.com/thomasweng15/vive-mujoco.
 
-# New Features
-- Implement 3 mode of simulation type in Mujoco : record, playback, regular
+# Usage
+- 3 mode of simulation type in Mujoco : record, playback, regular
 - Able to collect data in virtual world and reload the data
 - Optimize the Grippers and Contacts(shape, skin, parameters, solvers and so on)
 - Make the grasping task more smoothly on Mujoco Engine
