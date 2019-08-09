@@ -32,8 +32,8 @@
                 <!-- enabling twist joint makes inertial matrix freak out. including this might be good, but unsure of parameters to pick to enable non-buggy sim. -->
                 <!-- <joint kind="stretch" stiffness="0.0001"/> -->
                 <!-- playing with stretch joint might be helpful for making it behave less like a carpet when it is stiff -->
-                <skin material="matcarpet" texcoord="true" inflate="0.005" subgrid="3"/>
-                <geom rgba=".8 .2 .1 1" size=".01 .005" type="capsule" friction='1.5 1.5 1.5' solref='0.0001 1' solimp='0.99 0.99 0.01' condim='4'/>
+                <!-- <skin material="matcarpet" texcoord="true" inflate="0.005" subgrid="3"/> -->
+                <geom rgba=".8 .2 .1 1" size=".01 .005" type="capsule"/>
                 <!-- adding friction to geom might be a good way to make the material less like a silky, slippery carpet /-->
 
             </composite>
@@ -68,7 +68,7 @@
         </composite> -->
 
 
-        <body name="boxa" pos="-0.15 0.5 0.72">
+        <!-- <body name="boxa" pos="-0.15 0.5 0.72">
             <joint type="free"/>
             <geom type="box" size=".01 .01 .01" rgba="0 .9 0 1"/>
         </body>
@@ -76,7 +76,7 @@
         <body name="boxb" pos="-0.15 0 0.4">
             <joint type="free"/>
             <geom type="box" size=".01 .01 .01" rgba="0 .9 0 1"/>
-        </body>
+        </body> -->
 
         <!-- <body name="Rope_B7" pos="-0.15 0.5 0.72">
             <freejoint name="Rope_ref"/>
@@ -259,7 +259,7 @@
 
         <!-- <weld name="weldrope" body1="l_arm_gripper_base" body2="Rope_B7" relpose="0 0 0.21 1 0 0 0" active="false" solref="0.0001 1" solimp=".99 .99 0.01"/> -->
         
-        <weld name="weldcloth_a" body1="l_arm_gripper_base" body2="Cloth_B0_0" relpose="0 0 0.25 1 0 0 0" active="false" solref="0.0001 1" solimp=".99 .99 0.01"/>
+        <!-- <weld name="weldcloth_a" body1="l_arm_gripper_base" body2="Cloth_B0_0" relpose="0 0 0.25 1 0 0 0" active="false" solref="0.0001 1" solimp=".99 .99 0.01"/> -->
 
         <!-- <weld name="weldcloth_b" body1="r_arm_gripper_base" body2="Cloth_B8_8" relpose="0 0 0.21 1 0 0 0" active="false" solref="0.0001 1" solimp=".99 .99 0.01"/> -->
     </equality>

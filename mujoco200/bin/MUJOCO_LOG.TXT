@@ -62821,3 +62821,21 @@ ERROR: Could not init VR runtime: Another app was already launching (117)
 Fri Aug  9 03:51:58 2019
 ERROR: Could not init VR runtime: Another app was already launching (117)
 
+Fri Aug  9 03:57:23 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Aug  9 03:59:17 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Aug  9 03:59:22 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Aug  9 04:01:15 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Aug  9 04:03:19 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Aug  9 04:05:27 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+

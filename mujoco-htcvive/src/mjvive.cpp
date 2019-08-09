@@ -17,6 +17,7 @@
 #include <string>
 #include <sstream>
 #include <openvr.h>
+#include <ctime>
 using namespace vr;
 
 //-------------------------------- MuJoCo global data -----------------------------------
@@ -32,7 +33,10 @@ mjvPerturb pert;
 mjrContext con;
 GLFWwindow* window;
 double frametime = 0;
-std::ofstream myfile("C:/Users/yujie/.mujoco/mocap_test.txt");
+std::ofstream myfile;//(filePath.c_str());
+std::string filePath;
+std::string pathname = "C:/Users/yujie/.mujoco/data/pathname.txt";
+int triggeRecord = 0;
 //-------------------------------- MuJoCo functions -------------------------------------
 
 // load model, init simulation and rendering; return 0 if error, 1 if ok
@@ -103,6 +107,19 @@ int initMuJoCo(const char* filename, int width2, int height)
 
     return 1;
 }
+
+// mocap date file
+std::string getCurrentDateTime( std::string s ){
+   time_t now = time(0);
+   struct tm  tstruct;
+   char  buf[80];
+   tstruct = *localtime(&now);
+   if(s=="now")
+       strftime(buf, sizeof(buf), "%Y%m%d%X", &tstruct);
+   else if(s=="date")
+       strftime(buf, sizeof(buf), "%Y%m%d%X", &tstruct);
+   return std::string(buf);
+};
 
 
 // deallocate everything and deactivate
@@ -485,34 +502,6 @@ void v_update(int flag)
 {
     int n, i;
     mjvGeom* g;
-
-    // int bodyid = mj_name2id(m, mjOBJ_BODY, "B3_5");
-    // int qposadr = -1, qveladr = -1;
-
-    // qposadr = m->jnt_qposadr[m->body_jntadr[bodyid]];
-    // qveladr = m->jnt_dofadr[m->body_jntadr[bodyid]];
-    // printf(">>> qposadr %f qvel%f\n", qposadr, qveladr);
-    // haptic api
-    // mjInfo info;
-    // mj_info(&info);
-    // int bodyid = mj_name2id("body", "B3_5");
-    
-    // int qposadr = -1, qvelar = -1;
-
-    // for(int i = 0; i < info.njnt; i++)
-    // {
-    //     if(info.jnt_bodyid[i] == bodyid && info.jnt_type[i]==mjJNT_FREE)
-    //     {
-    //         qposadr = info.jnt_qposadr[i];
-    //         qveladr = info.jnt_dofadr[i];
-    //         break;
-    //     }
-    // }
-
-
-    //printf(">>> hmd id %d  pos %f", hmd.id, hmd.roompos[0] );
-    // get new poses
-    //printf(">>>> camera position scn camera 0 %d %d %d\n", scn.camera[1].pos[0], scn.camera[0].pos[1],scn.camera[0].pos[2] );
     TrackedDevicePose_t poses[k_unMaxTrackedDeviceCount];
     VRCompositor()->WaitGetPoses(poses, k_unMaxTrackedDeviceCount, NULL, 0 );
 
@@ -574,9 +563,8 @@ void v_update(int flag)
         {   
             if(flag==1)
             {
-                printf(">> record evt");
-                myfile.open("C:/Users/yujie/.mujoco/mocap_test.txt", std::ios_base::app);
-                myfile << "update " << evt.eventType << " ";
+                //myfile.open(pathname, std::ios_base::app);
+                //myfile << "update " << evt.eventType << " ";
                 //myfile.close();
             }
 
@@ -596,9 +584,8 @@ void v_update(int flag)
                 button = vBUTTON_MENU;
                 if(flag == 1)//record
                 {
-                    printf(">> record flag");
-                    //myfile.open("C:/Users/yujie/.mujoco/mocap_test.txt", std::ios_base::app);
-                    myfile << " " << "vBUTTON_MENU";
+                    //myfile.open(filePath.c_str(), std::ios_base::app);
+                    //myfile << " " << "vBUTTON_MENU";
                     //myfile.close();
                 }
                 break;
@@ -607,9 +594,8 @@ void v_update(int flag)
                 button = vBUTTON_SIDE;
                 if(flag == 1)//record
                 {
-                    printf(">> record flag");
-                    //myfile.open("C:/Users/yujie/.mujoco/mocap_test.txt", std::ios_base::app);
-                    myfile << " " << "vBUTTON_SIDE";
+                    //myfile.open(filePath.c_str(), std::ios_base::app);
+                    //myfile << " " << "vBUTTON_SIDE";
                     //myfile.close();
                 }
                 break;
@@ -618,9 +604,8 @@ void v_update(int flag)
                 button = vBUTTON_TRIGGER;
                 if(flag == 1)//record
                 {
-                    printf(">> record flag");
-                    //myfile.open("C:/Users/yujie/.mujoco/mocap_test.txt", std::ios_base::app);
-                    myfile << " " << "vBUTTON_TRIGGER";
+                    //myfile.open(filePath.c_str(), std::ios_base::app);
+                    //myfile << " " << "vBUTTON_TRIGGER";
                     //myfile.close();
                 }
                 break;
@@ -629,9 +614,10 @@ void v_update(int flag)
                 button = vBUTTON_PAD;
                 if(flag == 1)//record
                 {
-                    printf(">> record flag");
-                    //myfile.open("C:/Users/yujie/.mujoco/mocap_test.txt", std::ios_base::app);
-                    myfile << " " << "vBUTTON_PAD";
+                    triggeRecord = 1;
+                    printf(">>> Trigger Record");
+                    //myfile.open(filePath.c_str(), std::ios_base::app);
+                    //myfile << " " << "vBUTTON_PAD";
                     //myfile.close();
                 }
                 break;
@@ -650,7 +636,15 @@ void v_update(int flag)
                     {
                         // printf(">>> weld cloth \n");
                         m->eq_active[weldclothaid] = 1;
-                        // m->eq_active[weldclothbid] = 1;
+                        m->eq_data[weldclothaid*7+0] = 0;
+                        m->eq_data[weldclothaid*7+1] = 0;
+                        m->eq_data[weldclothaid*7+2] = 0.15;
+
+                        m->eq_data[weldclothaid*7+3] = 0;
+                        m->eq_data[weldclothaid*7+4] = 0;
+                        m->eq_data[weldclothaid*7+5] = 0;
+                        m->eq_data[weldclothaid*7+6] = 0;
+
                     }
                     // reset old pose
                     for( i=0; i<9; i++ )
@@ -698,7 +692,6 @@ void v_update(int flag)
                 else if( button==vBUTTON_SIDE )
                 {
                     // user can trigger custom action here
-
                 }
 
                 break;
@@ -707,8 +700,6 @@ void v_update(int flag)
                 ctl[n].hold[button] = false;
                 if( ctl[1].hold[button] == false )
                 {
-
-                    // printf(">>> un weld %d\n");
                     m->eq_active[weldclothaid] = 0;
                     // m->eq_active[weldclothbid] = 0;
 
@@ -747,7 +738,6 @@ void v_update(int flag)
             }
             else
             {
-                //printf("no update target pose");
                 mju_copy3(ctl[n].targetpos, ctl[n].pos);
                 mju_copy(ctl[n].targetquat, ctl[n].quat, 4);
             }
@@ -772,14 +762,12 @@ void v_update(int flag)
 
                 if( ctl[n].tool==vTOOL_MOVE )
                 {
-                    //printf(">>>> vtool move");
                     g->type = mjGEOM_ARROW2;
                     g->size[0] = g->size[1] = 0.01f / scn.scale;
                     g->size[2] = 0.08f / scn.scale;
                 }
                 else if (ctl[n].tool==vTOOL_PULL) 
                 {
-                    //printf(">>>> Vtool pull");
                     g->type = mjGEOM_BOX;
                 }
                 else
@@ -851,12 +839,12 @@ void v_update(int flag)
                 }
             }
             
-            if(flag == 1)
-            {
-                //myfile.open("C:/Users/yujie/.mujoco/mocap_test.txt", std::ios_base::app);
-                myfile <<"\n";
-                myfile.close();
-            }
+            // if(flag == 1)
+            // {
+            //     //myfile.open(filePath.c_str(), std::ios_base::app);
+            //     myfile <<"\n";
+            //     myfile.close();
+            // }
             
         }
 
@@ -976,7 +964,6 @@ void v_update_playback(std::vector<std::string> sep)
 
     // process events: button and touch only
     VREvent_t evt;
-    printf(">>>> process events");
     if(sep[1].compare("200"))
     {
         evt.eventType = 200;
@@ -993,10 +980,9 @@ void v_update_playback(std::vector<std::string> sep)
     {
         evt.eventType = 203;
     }
-    printf("evet type %d", evt.eventType);
+    // printf("evet type %d", evt.eventType);
     while( hmd.system->PollNextEvent(&evt, sizeof(VREvent_t)) )
     {
-        printf(">>> while");
         if( evt.eventType>=200 && evt.eventType<=203 )
         {
             // get controller
@@ -1011,7 +997,6 @@ void v_update_playback(std::vector<std::string> sep)
             n = 1;
             // get button
             int button = vBUTTON_TRIGGER;
-            printf(">>> get button");
             /* 
             switch( sep[2] )
             {
@@ -1033,7 +1018,6 @@ void v_update_playback(std::vector<std::string> sep)
             default:
                 break;
             }*/
-            printf("sep[2] %s", sep[2]);
             if(sep[2].compare("vBUTTON_MENU"))
             {
                 button = vBUTTON_MENU;
@@ -1050,9 +1034,6 @@ void v_update_playback(std::vector<std::string> sep)
             {
                 button = vBUTTON_PAD;
             }
-            printf(">> button %d ", button);
-            // process event
-            //printf(">>> evt type %s",sep[1]);
             int sepEvent;
             if(sep[1].compare("VREvent_ButtonPress"))
             {
@@ -1078,7 +1059,6 @@ void v_update_playback(std::vector<std::string> sep)
                 // trigger button: save relative pose
                 if( button==vBUTTON_TRIGGER )
                 {
-                    printf(">> trigger button");
                     // reset old pose
                     
                     for( i=0; i<9; i++ )
@@ -1155,7 +1135,6 @@ void v_update_playback(std::vector<std::string> sep)
                 break;
             }
         }
-    printf(" finish controller update");
     // finish controller update, after processing events
     for( n=0; n<2; n++ )
         if( ctl[n].id>=0 )
@@ -1165,11 +1144,9 @@ void v_update_playback(std::vector<std::string> sep)
             {
                 mju_mulPose(ctl[n].targetpos, ctl[n].targetquat,
                     ctl[n].pos, ctl[n].quat, ctl[n].relpos, ctl[n].relquat);
-                printf("update target pose");
             }
             else
             {
-                //printf("no update target pose");
                 mju_copy3(ctl[n].targetpos, ctl[n].pos);
                 mju_copy(ctl[n].targetquat, ctl[n].quat, 4);
             }
@@ -1194,14 +1171,12 @@ void v_update_playback(std::vector<std::string> sep)
 
                 if( ctl[n].tool==vTOOL_MOVE )
                 {
-                    //printf(">>>> vtool move");
                     g->type = mjGEOM_ARROW2;
                     g->size[0] = g->size[1] = 0.01f / scn.scale;
                     g->size[2] = 0.08f / scn.scale;
                 }
                 else if (ctl[n].tool==vTOOL_PULL) 
                 {
-                    //printf(">>>> Vtool pull");
                     g->type = mjGEOM_BOX;
                 }
                 else
@@ -1329,7 +1304,6 @@ void v_update_playback(std::vector<std::string> sep)
             for( i=0; i<9; i++ )
                 ctl[n].oldroommat[i] = ctl[n].roommat[i];
         }
-    printf(">> finish update playback");
     }
 }
 
@@ -1337,25 +1311,6 @@ void v_update_playback(std::vector<std::string> sep)
 // render to vr and window
 void v_render(void)
 {
-    // int bodyid = mj_name2id(m, mjOBJ_BODY, "B3_5");
-    // int qposadr = -1, qveladr = -1;
-    // mjtNum qbodypos;
-    // int geomnum;
-
-    // // make sure we have a floating body: it has a single free joint
-    // if( bodyid>=0 && m->body_jntnum[bodyid]==1 && 
-    //     m->jnt_type[m->body_jntadr[bodyid]]==mjJNT_FREE )
-    // {
-    //     // extract the addresses from the joint specification
-    //     qposadr = m->jnt_qposadr[m->body_jntadr[bodyid]];
-    //     qveladr = m->jnt_dofadr[m->body_jntadr[bodyid]];
-    //     qbodypos = m->body_pos[m->body_jntadr[bodyid]];
-    //     geomnum = m->body_geomnum[m->body_jntadr[bodyid]];
-    //     //printf(">>> geomnum : %d\n", geomnum);
-    // }
-
-
-    
     // resolve multi-sample offscreen buffer
     glBindFramebuffer(GL_READ_FRAMEBUFFER, con.offFBO);
     glReadBuffer(GL_COLOR_ATTACHMENT0);
@@ -1399,7 +1354,6 @@ void v_render(void)
     glFlush();
 }
 
-
 // close vr
 void v_close(void)
 {
@@ -1409,16 +1363,18 @@ void v_close(void)
     // VR_Shutdown();
 }
 
-
-
 //-------------------------------- main function ----------------------------------------
 
 int main(int argc, const char** argv)
 {
     char filename[100];
+
     char flag[1]; //0 for playback 1 for record 2 for normal play
     // get filename from command line or iteractively
     std::string play = "0";
+    //filePath = "C:/Users/yujie/.mujoco/data/" + getCurrentDateTime("now") + ".txt";
+
+    //myfile.open(pathname, std::ios_base::out | std::ios_base::app);
     if( argc==3 )
     {
         strcpy(filename, argv[1]);
@@ -1437,8 +1393,13 @@ int main(int argc, const char** argv)
         printf("Enter record or play: ");
         scanf("%s", flag);
     }
-    printf(">> init pre");
 
+    printf(">> init pre");
+    std::string paths = "C:/Users/yujie/.mujoco/data/";
+    std::string name = "record.txt";
+
+    std::string pathfile = paths + name;
+    myfile.open(pathfile);
     // pre-initialize vr
     v_initPre();
 
@@ -1459,14 +1420,14 @@ int main(int argc, const char** argv)
     
     myfile.close();
     std::vector<std::string> sep[10000];
-    std::ifstream inmyfile("C:/Users/yujie/.mujoco/mocap_test_2.txt");
+    std::ifstream inmyfile(filePath.c_str());
     if(flag[0] == '0')//0 for play
     {
 
         std::string str;
         int line = -1;
         int item = 0;
-        std::ifstream inmyfile("C:/Users/yujie/.mujoco/mocap_test_2.txt");
+        std::ifstream inmyfile(filePath.c_str());
         while(inmyfile >> str && line < 1000)
         {
             if(str.compare("mocap") == 0 || str.compare("update") == 0)
@@ -1481,8 +1442,6 @@ int main(int argc, const char** argv)
     int cnt = 0;
     while( !glfwWindowShouldClose(window) )
     {
-        //printf(">>> current sep %s", sep[cnt][0]);
-        //printf("loop");
         // render new frame if it is time, or if simulation was reset
         if( (d->time-frametime)>1.0/FPS || d->time<frametime )
         {
@@ -1499,7 +1458,6 @@ int main(int argc, const char** argv)
                 v_update(1);
             else
             {
-                //printf(" update 2");
                 v_update(2);
             }            
             // render in offscreen buffer
@@ -1521,8 +1479,6 @@ int main(int argc, const char** argv)
             frametime = d->time;
         }
 
-        // int clothid = mj_name2id(m, mjOBJ_BODY, "Cloth_B3_5");
-        // printf(">>> clothid %d \n", clothid);
         // apply controller perturbations
         mju_zero(d->xfrc_applied, 6*m->nbody);
         // set external xfrc force to the cloth
@@ -1542,7 +1498,6 @@ int main(int argc, const char** argv)
                 pert.select = ctl[n].body;
                 mju_copy3(pert.refpos, ctl[n].targetpos);
                 mju_copy(pert.refquat, ctl[n].targetquat, 4);
-                // printf(">>> force %f f2 %f f3 %f f4 %f f5 %f f6 %f\n", d->xfrc_applied[6*clothid], d->xfrc_applied[6*clothid + 1], d->xfrc_applied[6*clothid + 2], d->xfrc_applied[6*clothid + 3], d->xfrc_applied[6*clothid + 4], d->xfrc_applied[6*clothid + 5]);
                 // apply
                 mjv_applyPerturbPose(m, d, &pert, 0);
                 mjv_applyPerturbForce(m, d, &pert);
@@ -1555,50 +1510,15 @@ int main(int argc, const char** argv)
                 // mju_copy(pert.refquat, ctl[n].targetquat, 4);
                 // mjv_applyPerturbPose(m, d, &pert, 0);
                 // mjv_applyPerturbForce(m, d, &pert);
-                // printf(">>> else force %f f2 %f f3 %f f4 %f f5 %f f6 %f\n", d->xfrc_applied[6*clothid], d->xfrc_applied[6*clothid + 1], d->xfrc_applied[6*clothid + 2], d->xfrc_applied[6*clothid + 3], d->xfrc_applied[6*clothid + 4], d->xfrc_applied[6*clothid + 5]);
             }
-        // printf(">>> qfrc force %f actuator_force %f\n", d->qfrc_actuator[6*clothid], d->actuator_force[6*clothid]);
 
-        // add weld
-        // m->eq_obj1id
-        // m->eq_obj2id
-        // int boxa = -1, boxb = -1;
-        // printf(">>> weld eq %d eq %d eq %d eq %d eq %d eq %d eq %d\n", m->eq_obj1id[0], m->eq_obj1id[1], m->eq_obj1id[2], m->eq_obj1id[3], m->eq_obj1id[4], m->eq_obj1id[5], m->eq_obj1id[6]);
-        // boxa = mj_name2id(m, mjOBJ_BODY, "boxa");
-        // boxb = mj_name2id(m, mjOBJ_BODY, "boxb");
-        // int weldboxb = m->body_weldid[boxb];
-        // int weldboxa = m->body_weldid[boxa];
-        // printf(">>> boxa %d boxb %d weldboxa %d weldboxb id %d \n", boxa, boxb, weldboxa, weldboxb);
-
-        // int weldid = -1;
-        // weldid = mj_name2id(m, mjEQ_WELD, "weldmocap");
-
-
-
-        // int boxaid, Cloth_B0_0;
-        // boxaid = mj_name2id(m, mjOBJ_BODY, "boxa");
-        // Cloth_B0_0 = mj_name2id(m, mjOBJ_BODY, "Cloth_B0_0");
-        // // printf(">>> boxaid %d Cloth_B0_0id %d \n", boxaid, Cloth_B0_0);
-
-        // int weldid = mj_name2id(m, mjOBJ_EQUALITY, "weldbox");
-        // int obj1id = m->eq_obj1id[weldid];
-        // int obj2id = m->eq_obj2id[weldid];
-        // m->eq_obj2id[weldid] = Cloth_B0_0;
-
-        
-        // printf(">>> obj1id %d obj2id %d weldid %d\n", obj1id, obj2id, weldid);
-
-        // // int nameeqadr = m->name_eqadr[mj_name2id(m, mjEQ_WELD, "boxa")];
-        // printf(">>> eq_active %d \n", m->eq_active[weldid]);
-        // m->eq_active[weldid] = 1;
-        
+        myfile.open(pathfile, std::ios_base::app);
         // play back from txt file        
         if(flag[0] == '0' && cnt < 600)
         {
 
             if(sep[cnt][0].compare("update")!=0)
             {
-                //printf(" compare update %s %s %s %s %s %s", sep[cnt][2],sep[cnt][3],sep[cnt][4],sep[cnt][5],sep[cnt][6],sep[cnt][7]);
                 d->mocap_pos[0] = std::stod(sep[cnt][1]);
                 d->mocap_pos[1] = std::stod(sep[cnt][2]);
                 d->mocap_pos[2] = std::stod(sep[cnt][3]);
@@ -1616,13 +1536,11 @@ int main(int argc, const char** argv)
                 d->mocap_quat[7] = std::stod(sep[cnt][14]);
                 cnt++;
             }
-            //printf(">>> mocap %f", d->mocap_quat[7]);
 
         }
         // (tweng) Update mocap of controller
         else
         {
-            //printf(">> else");
             d->mocap_pos[0] = ctl[0].pos[0];
             d->mocap_pos[1] = ctl[0].pos[1];
             d->mocap_pos[2] = ctl[0].pos[2];
@@ -1638,12 +1556,10 @@ int main(int argc, const char** argv)
             d->mocap_quat[5] = ctl[1].quat[1];
             d->mocap_quat[6] = ctl[1].quat[2];
             d->mocap_quat[7] = ctl[1].quat[3];
-            if(flag[0] == '1')
-            {
+            if(flag[0] == '1' && triggeRecord == 1)
+            {   
                 // action : pos and quat of controller and btnTrigger
-                myfile.open("C:/Users/yujie/.mujoco/mocap_test.txt", std::ios_base::app);
-                myfile << "mocap " << d->mocap_pos[0] << " " <<d->mocap_pos[1] << " "<<d->mocap_pos[2] << " "<<d->mocap_pos[3] << " "<<d->mocap_pos[4] << " "<<d->mocap_pos[5] << " " << d->mocap_quat[0] << " "<< d->mocap_quat[1] << " "<< d->mocap_quat[2] << " "<< d->mocap_quat[3] << " "<< d->mocap_quat[4] << " "<< d->mocap_quat[5] << " "<< d->mocap_quat[6] << " "<< d->mocap_quat[7] << "btnTrigger " << ctl[0].hold[vBUTTON_TRIGGER] << " " << ctl[1].hold[vBUTTON_TRIGGER] << "\n";
-                myfile.close();
+                myfile << "mocap " << d->mocap_pos[0] << " " <<d->mocap_pos[1] << " "<<d->mocap_pos[2] << " "<<d->mocap_pos[3] << " "<<d->mocap_pos[4] << " "<<d->mocap_pos[5] << " " << d->mocap_quat[0] << " "<< d->mocap_quat[1] << " "<< d->mocap_quat[2] << " "<< d->mocap_quat[3] << " "<< d->mocap_quat[4] << " "<< d->mocap_quat[5] << " "<< d->mocap_quat[6] << " "<< d->mocap_quat[7] << " btnTrigger " << ctl[0].hold[vBUTTON_TRIGGER] << " " << ctl[1].hold[vBUTTON_TRIGGER];
             }
         }
         
@@ -1659,46 +1575,36 @@ int main(int argc, const char** argv)
 				(m->actuator_ctrlrange[2 * lGripper + 1] - m->actuator_ctrlrange[2 * lGripper]);
 		}
 
-        // int bodyid = mj_name2id(m, mjOBJ_BODY, "Cloth_B0_0");
-        // int qposadr = -1, qveladr = -1;
+        if(triggeRecord == 1)
+        {
+            // the same goal point generated script B8_0
+            int goalid = mj_name2id(m, mjOBJ_BODY, "Cloth_B8_0");
+            int goalqposadr = -1, goalqveladr = -1;
+            int bodyid = mj_name2id(m, mjOBJ_BODY, "Cloth_B0_0");
+            int qposadr = -1, qveladr = -1;
+            int gripid = mj_name2id(m, mjOBJ_BODY, "l_arm_gripper_base");
+            int gripqposadr = -1, gripqveladr = -1;
 
-        // // make sure we have a floating body: it has a single free joint
-        // if( bodyid>=0 && m->body_jntnum[bodyid]==1 && 
-        //     m->jnt_type[m->body_jntadr[bodyid]]==mjJNT_FREE )
-        // {
-        //     // extract the addresses from the joint specification
-        //     qposadr = m->jnt_qposadr[m->body_jntadr[bodyid]];
-        //     qveladr = m->jnt_dofadr[m->body_jntadr[bodyid]];
-        //     // printf(">>> qposadr : %d\n", qposadr);
-        //     // printf(">>> qpos : %f %f %f\n", d->qpos[qposadr], d->qpos[qposadr+1], d->qpos[qposadr+2]);
-        //     // printf(">>> qvel : %f %f %f\n", d->qvel[qveladr], d->qvel[qveladr+1], d->qvel[qveladr+2]);
-        // }
+            // make sure we have a floating body: it has a single free joint
 
-        // int jntid = mj_name2id(m, mjOBJ_JOINT, "Cloth_J1_8_5");
-        // int jntposadr = -1, jnt_bodyid = -1;
-        // mjtNum localjntpos = 0, bodypos = 0;
-        // if( jntid > 0)
-        // {
-        //     jntposadr = m->jnt_qposadr[m->body_jntadr[jntid]];
-        //     localjntpos = m->jnt_pos[jntposadr];
-        //     jnt_bodyid = m->jnt_bodyid[jntid];
-        //     bodypos = d->qpos[m->jnt_qposadr[m->body_jntadr[jnt_bodyid]]];
-        //     printf("jntposadr %d localjntpos %f jntbodyid %d bodypos %f\n", jntposadr, localjntpos, jnt_bodyid, bodypos);
-        // }
-        // if(jntid > 0)
-        //     printf("jnt id %d (%f, %f)\n", jntid, m->jnt_range[2*jntid], m->jnt_range[2*jntid+1]);
-        // int jntid = mj_name2id(m, mjOBJ_JOINT, "cloth_ref");
-        // if( jntid>=0 )
-        //     printf("(%f, %f)\n", m->jnt_range[2*jntid], m->jnt_range[2*jntid+1]); 
+            goalqposadr = m->jnt_qposadr[m->body_jntadr[goalid]];
+            goalqveladr = m->jnt_dofadr[m->body_jntadr[goalid]];
 
-        // int bodyid = mj_name2id(m, mjOBJ_BODY, "Cloth_B3_5");
-        // mjtNum qpos, quat;
+            qposadr = m->jnt_qposadr[m->body_jntadr[bodyid]];
+            qveladr = m->jnt_dofadr[m->body_jntadr[bodyid]];
 
-        // qpos = d->geom_xpos[m->body_jntadr[1]];
-        // //qpos = m->jnt_qposadr[m->body_jntadr[bodyid]];
-        // quat = m->mesh_vertnum[m->body_jntadr[bodyid]];
-        // mjtNum statc[3];
-        //printf(">>> qpos %f quat %f\n", qpos, quat);
+            gripqposadr = m->jnt_qposadr[m->body_jntadr[bodyid]];
+            gripqveladr = m->jnt_dofadr[m->body_jntadr[bodyid]];
+
+            myfile << " Cloth_B0_0_qpos " << d->qpos[qposadr] << " " << d->qpos[qposadr+1] << " " << d->qpos[qposadr+2] << " Cloth_B0_0_qvel " << d->qvel[qveladr] << " " << d->qvel[qveladr+1] << " " << d->qvel[qveladr+2] << " Cloth_B8_0_qpos " << d->qpos[goalqposadr] << " " << d->qpos[goalqposadr+1] << " " << d->qpos[goalqposadr+2] << " Cloth_B8_0_qvel " << d->qvel[goalqveladr] << " " << d->qvel[goalqveladr+1] << " " << d->qvel[goalqveladr+2];
+
+            myfile << " l_arm_gripper_base " << d->qpos[gripqposadr] << " " << d->qpos[gripqposadr+1] << " " << d->qpos[gripqposadr+2] << " " << d->qvel[gripqveladr] << " " << d->qvel[gripqveladr+1] << " " << d->qvel[gripqveladr+2]; 
+
+            int recordweldid = mj_name2id(m, mjOBJ_EQUALITY, "weldcloth_a");
+            myfile << " weldcloth " << int(m->eq_active[recordweldid]) << "\n";
+
+        }
+        myfile.close();
 
         // (tweng) Control gripper if sawyer
 		int rGripperRJoint = mj_name2id(m, mjOBJ_ACTUATOR, "r_gripper_jr_joint");
@@ -1728,7 +1634,6 @@ int main(int argc, const char** argv)
 
         // update GUI
         glfwPollEvents();
-        //printf(">>>update GUI\n");
     }
 
     // close
