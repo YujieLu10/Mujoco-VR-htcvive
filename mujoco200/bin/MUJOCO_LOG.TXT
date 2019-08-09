@@ -62701,3 +62701,123 @@ WARNING: Nan, Inf or huge value in QACC at DOF 37. The simulation is unstable. T
 Fri Jul 26 15:14:36 2019
 ERROR: Could not init VR runtime: Another app was already launching (117)
 
+Wed Jul 31 11:14:23 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 3.0150.
+
+Wed Jul 31 11:17:06 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 3.0400.
+
+Wed Jul 31 11:19:49 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 17.1900.
+
+Wed Jul 31 11:20:06 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Wed Jul 31 11:20:23 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 17. The simulation is unstable. Time = 3.0600.
+
+Wed Jul 31 11:23:53 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Wed Jul 31 11:26:05 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Wed Jul 31 11:31:05 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 50. The simulation is unstable. Time = 381.2750.
+
+Thu Aug  8 15:34:20 2019
+ERROR: Expected HMD and at least one Controller
+
+Thu Aug  8 15:41:52 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Thu Aug  8 15:47:21 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Thu Aug  8 15:49:22 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Thu Aug  8 15:49:47 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Thu Aug  8 15:49:59 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 19. The simulation is unstable. Time = 3.0500.
+
+Thu Aug  8 18:04:43 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Thu Aug  8 18:07:37 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Thu Aug  8 18:08:57 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Invalid Connect Response (307)
+
+Thu Aug  8 18:15:14 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Thu Aug  8 18:15:35 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Thu Aug  8 18:15:59 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Thu Aug  8 18:16:52 2019
+ERROR: Expected HMD and at least one Controller
+
+Thu Aug  8 19:52:39 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 19. The simulation is unstable. Time = 0.0350.
+
+Thu Aug  8 19:52:45 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 20. The simulation is unstable. Time = 0.2550.
+
+Thu Aug  8 19:52:46 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 0.0800.
+
+Thu Aug  8 19:55:12 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 19. The simulation is unstable. Time = 71.4600.
+
+Thu Aug  8 19:55:13 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 48. The simulation is unstable. Time = 0.0300.
+
+Thu Aug  8 19:55:13 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 0.0200.
+
+Thu Aug  8 20:23:52 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 34.2250.
+
+Thu Aug  8 20:25:24 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 126. The simulation is unstable. Time = 93.5400.
+
+Thu Aug  8 21:22:30 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 19. The simulation is unstable. Time = 42.9000.
+
+Fri Aug  9 02:45:47 2019
+WARNING: Nan, Inf or huge value in QACC at DOF 124. The simulation is unstable. Time = 377.8950.
+
+Fri Aug  9 02:45:48 2019
+WARNING: Nan, Inf or huge value in QVEL at DOF 172. The simulation is unstable. Time = 0.0300.
+
+Fri Aug  9 03:25:43 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Aug  9 03:25:47 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Aug  9 03:27:21 2019
+ERROR: Could not init VR runtime: Shared IPC Compositor Connect Failed (306)
+
+Fri Aug  9 03:41:53 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Aug  9 03:44:43 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Aug  9 03:47:59 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Aug  9 03:50:00 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
+Fri Aug  9 03:51:58 2019
+ERROR: Could not init VR runtime: Another app was already launching (117)
+
