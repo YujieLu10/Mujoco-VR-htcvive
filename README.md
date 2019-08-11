@@ -1,4 +1,5 @@
-Based on https://github.com/thomasweng15/vive-mujoco.
+Based on https://github.com/thomasweng15/vive-mujoco and https://github.com/openai/mujoco-py/blob/master/examples/mjvive.py.
+Thanks to great work and collaboration of Thomas and Stephanie, as well as the devices support of R-Pad!
 
 # Usage
 - 3 mode of simulation type in Mujoco : record, playback, regular
